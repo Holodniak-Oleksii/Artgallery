@@ -50,7 +50,7 @@ const Scene = ({ url }) => {
   };
 
   return (
-    <Canvas style={{ pointerEvents: "visible" }} sRGB shadows>
+    <Canvas style={{ pointerEvents: "visible" }} shadows>
       <OrbitControls makeDefault position={new Vector3(0, 0, 100)} />
       <ambientLight intensity={0.6} />
       <directionalLight intensity={0.5} />

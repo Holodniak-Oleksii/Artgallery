@@ -9,8 +9,8 @@ const Wrapper = styled.button`
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 `;
 
-const DarkButton = ({ title, onClick }) => {
-  return <Wrapper onClick={onClick}>{title}</Wrapper>;
+const DarkButton = ({ title, onClick, type }) => {
+  return <Wrapper type={type} onClick={onClick}>{title}</Wrapper>;
 };
 
 export default DarkButton;

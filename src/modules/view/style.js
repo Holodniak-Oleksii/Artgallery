@@ -34,3 +34,5 @@ export const Flex = styled.div`
   gap: 12px;
   margin: 20px 0;
 `;
+
+export const Form = styled.form``
