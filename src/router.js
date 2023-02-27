@@ -2,7 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layout";
 import ErrorPage from "./modules/error";
 import Home from "./modules/home";
-import ViewPage from "./modules/view";
+import Create from "./modules/create";
+import Details from "./modules/detail";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -16,8 +17,12 @@ const Router = () => {
           element: <Home />,
         },
         {
-          path: "/view",
-          element: <ViewPage />,
+          path: "/create",
+          element: <Create />,
+        },
+        {
+          path: "/artwork/:id",
+          element: <Details />,
         },
       ],
     },

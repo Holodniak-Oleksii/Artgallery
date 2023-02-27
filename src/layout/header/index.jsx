@@ -3,7 +3,7 @@ import { Wrapper } from './style'
 
 const Header = () => {
   return (
-    <Wrapper>Header</Wrapper>
+    <Wrapper></Wrapper>
   )
 }
 

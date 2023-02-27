@@ -7,7 +7,7 @@ import { dataURLtoFile } from "../../helpers/base64toFile";
 import { OBJContainer, Wrapper, Image, Flex, Form } from "./style";
 export const imageContext = createContext();
 
-const ViewPage = () => {
+const Create = () => {
   const [file, setFile] = useState({url: null, file: null});
   const [image, setImage] = useState({ image: null, click: false });
   const {
@@ -59,4 +59,4 @@ const ViewPage = () => {
   );
 };
 
-export default ViewPage;
+export default Create;

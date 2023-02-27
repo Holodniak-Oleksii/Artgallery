@@ -9,8 +9,9 @@ import {
   useBounds,
 } from "@react-three/drei";
 import { Vector3 } from "three";
-import { LoadGLTF } from "./load";
-import { imageContext } from "../../../modules/view";
+import { LoadGLTF } from "../load";
+import { imageContext } from "../../../modules/create";
+
 
 export const Preloader3D = ({ url, format }) => {
   switch (format) {

@@ -3,7 +3,7 @@ import { Wrapper } from './style'
 
 const Footer = () => {
   return (
-    <Wrapper>footer</Wrapper>
+    <Wrapper></Wrapper>
   )
 }
 
