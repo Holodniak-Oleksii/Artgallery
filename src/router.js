@@ -17,6 +17,18 @@ const Router = () => {
           element: <Home />,
         },
         {
+          path: "/spaces",
+          element: <>spaces</>,
+        },
+        {
+          path: "/contact-us",
+          element: <>contact-us</>,
+        },
+        {
+          path: "/about-us",
+          element: <>about-us</>,
+        },
+        {
           path: "/create",
           element: <Create />,
         },
