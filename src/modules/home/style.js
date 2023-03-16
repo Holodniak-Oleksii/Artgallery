@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 export const List = styled.div`
   display: grid;
   width: 100%;
+
   grid-gap: 8px;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
 `;
@@ -18,14 +22,13 @@ export const Item = styled.div`
 `;
 export const Banner = styled.div`
   width: 60%;
-  transform: rotateY(180deg);
-  aspect-ratio: 9 / 5;
-  background-size: cover;
-  -webkit-clip-path: url(#my-clip-path);
-  clip-path: url(#my-clip-path);
-  .svg {
-    position: absolute;
-    width: 0;
-    height: 0;
-  }
+`;
+
+export const MainFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  gap: 100px;
 `;

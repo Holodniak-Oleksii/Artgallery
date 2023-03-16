@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.58.3",
     "styled-components": "^5.3.6",
+    "swiper": "^9.1.0",
     "three": "^0.150.0"
   },
   "scripts": {

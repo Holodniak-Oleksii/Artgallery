@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import { flex_center } from "@/assets/scss/global";
+
 const Button = styled.button`
+  ${flex_center}
+  gap: 4px;
   padding: 8px 20px;
   border-radius: 100px;
   ${(props) =>
@@ -10,13 +14,18 @@ const Button = styled.button`
         border: 1px solid rgba(164, 55, 219, 1) ;
         color: rgba(32, 129, 226, 1);
       `
+      : props.transparent
+      ? `
+        background: rgba(32, 129, 226, 0.1);
+        color: rgba(32, 129, 226, 1);
+      `
       : `
         background: linear-gradient(90deg,rgba(164, 55, 219, 1) 0%,rgba(32, 129, 226, 1) 100%);
         color: #fff;
       `}
-  font-size: 18px;
-  line-height: 22px;
-  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
   @media screen and (min-width: 1024px) {
     transition: all 0.4s ease-in;
     &:hover {
@@ -26,6 +35,10 @@ const Button = styled.button`
             border: 1px solid rgba(164, 55, 219, 1) ;
             background-color: rgba(188, 97, 233, 0.1);
           `
+          : props.transparent
+          ? `
+            background: rgba(32, 129, 226, 0.2);
+          `
           : `
           background: linear-gradient(90deg,rgba(178, 93, 221, 1) 0%,rgba(62, 146, 231, 1) 100%);
         `}
@@ -33,12 +46,22 @@ const Button = styled.button`
   }
 `;
 
-const BlueButton = ({ title, onClick, type, children, outline }) => {
+const BlueButton = ({
+  title,
+  onClick,
+  type,
+  children,
+  outline,
+  transparent,
+  className = "blue-btn",
+}) => {
   return (
     <Button
+      transparent={transparent}
       title={title || "button"}
       outline={outline}
       onClick={onClick}
+      className={className}
       type={type || "button"}
     >
       {children}

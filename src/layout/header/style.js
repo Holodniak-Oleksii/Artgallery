@@ -13,6 +13,8 @@ export const Wrapper = styled.header`
   margin: 0 auto;
   z-index: 10;
   padding: 10px 100px 10px 100px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(207, 206, 206, 0.811);
   @media screen and (max-width: 1440px) {
     padding: 10px 80px;
   }
@@ -43,13 +45,13 @@ export const Row = styled.div`
 
 export const Item = styled(Link)`
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 20px;
   ${(props) => props.active && `font-weight: 700`}
 `;
 
 export const Navigations = styled.div`
-  gap: 16px;
+  gap: 24px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
