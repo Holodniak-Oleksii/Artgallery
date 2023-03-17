@@ -14,12 +14,12 @@ export const Wrapper = styled.div`
   width: 100%;
   ${flex_center}
   position: relative;
-  gap: 60px;
+  gap: 50px;
 `;
 export const FakeContainer = styled.div`
   position: absolute;
   ${flex_center}
-  gap: 60px;
+  gap: 50px;
   transition: all 2s linear;
   z-index: 1;
   width: 100%;
@@ -90,28 +90,15 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 `;
 
 export const Content = styled.div`
   background-color: #f8f8f8;
-  height: 300px;
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
   width: 100%;
-`;
-export const Text = styled.p`
-  position: absolute;
-  top: 50%;
-  text-align: center;
-  width: 100%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  line-height: 28px;
-  color: rgb(35, 164, 219);
-  transition: all linear 0.4s;
-  opacity: 0;
-  ${(props) =>
-    props.active &&
-    `
-  opacity: 1;
-  `}
+  grid-gap: 16px;
+  margin: auto;
 `;

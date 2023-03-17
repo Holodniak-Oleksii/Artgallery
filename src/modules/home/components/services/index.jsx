@@ -7,9 +7,10 @@ import {
   FakeContainer,
   Container,
   Content,
-  Text,
 } from "./style";
 import handlerTravel from "./hook";
+import { FlipCard } from "@/components/ui";
+import { servicesText } from "../../data";
 
 const Services = ({ items }) => {
   const ref = useRef();
@@ -58,10 +59,8 @@ const Services = ({ items }) => {
         )}
       </Wrapper>
       <Content>
-        {items.map((item) => (
-          <Text key={item.id} active={item.id === travel.active}>
-            {item.text}
-          </Text>
+        {servicesText.map((item) => (
+          <FlipCard data={item} />
         ))}
       </Content>
     </Container>
