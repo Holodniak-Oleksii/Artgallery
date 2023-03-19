@@ -1,31 +1,12 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Scene from "../../components/3D/scene";
-import { Wrapper } from "./style";
+import React from 'react';
+import Scene from '@/components/3D/scene';
 
-const Details = () => {
-  const { id = null } = useParams();
-  const [data, setData] = useState(false);
-  
-  useEffect(() => {
-    const load = async () => {
-      axios
-        .post("http://localhost:5000/api/upload/detail", {id: id})
-        .then(function (response) {
-          setData(response.data[0]);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    };
-    load();
-  }, []);
+import { Wrapper } from './style';
 
-  if (!data) return null;
+const Details = ({ data }) => {
   return (
     <Wrapper>
-      <Scene url={data?.path3D}/>
+      <Scene url={data?.path3D} />
       <p>{data.name}</p>
     </Wrapper>
   );

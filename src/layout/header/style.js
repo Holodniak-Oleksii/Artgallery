@@ -1,29 +1,17 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { flex_center } from "@/assets/scss/global";
+import { flex_center } from '@/assets/scss/global';
+import Link from 'next/link';
 
 export const Wrapper = styled.header`
   height: 80px;
-  max-width: 1920px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  margin: 0 auto;
   z-index: 10;
-  padding: 10px 100px 10px 100px;
   background-color: #fff;
   box-shadow: 0 0 8px rgba(207, 206, 206, 0.811);
-  @media screen and (max-width: 1440px) {
-    padding: 10px 80px;
-  }
-  @media screen and (max-width: 1024px) {
-    padding: 10px 32px;
-  }
-  @media screen and (max-width: 540px) {
-    padding: 10px 16px;
-  }
 `;
 
 export const Logo = styled.div`
@@ -39,8 +27,21 @@ export const Row = styled.div`
   height: 100%;
   display: flex;
   justify-content: flex-end;
+  margin: 0 auto;
+  padding: 10px 100px 10px 100px;
+
   align-items: center;
   gap: 16px;
+  max-width: 1920px;
+  @media screen and (max-width: 1440px) {
+    padding: 10px 80px;
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 10px 32px;
+  }
+  @media screen and (max-width: 540px) {
+    padding: 10px 16px;
+  }
 `;
 
 export const Item = styled(Link)`

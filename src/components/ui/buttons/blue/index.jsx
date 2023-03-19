@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { flex_center } from "@/assets/scss/global";
+import { flex_center } from '@/assets/scss/global';
 
 const Button = styled.button`
   ${flex_center}
@@ -10,19 +10,28 @@ const Button = styled.button`
   border-radius: 100px;
   ${(props) =>
     props.outline
-      ? `
-        border: 1px solid rgba(164, 55, 219, 1) ;
-        color: rgba(32, 129, 226, 1);
-      `
+      ? css`
+          border: 1px solid rgba(164, 55, 219, 1);
+          color: rgba(32, 129, 226, 1);
+        `
       : props.transparent
-      ? `
-        background: rgba(32, 129, 226, 0.1);
-        color: rgba(32, 129, 226, 1);
-      `
-      : `
-        background: linear-gradient(90deg,rgba(164, 55, 219, 1) 0%,rgba(32, 129, 226, 1) 100%);
-        color: #fff;
-      `}
+      ? css`
+          background: rgba(32, 129, 226, 0.1);
+          color: rgba(32, 129, 226, 1);
+        `
+      : props.white
+      ? css`
+          border: 1px solid rgba(255, 255, 255, 1);
+          color: rgba(255, 255, 255, 1);
+        `
+      : css`
+          background: linear-gradient(
+            90deg,
+            rgba(164, 55, 219, 1) 0%,
+            rgba(32, 129, 226, 1) 100%
+          );
+          color: #fff;
+        `}
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
@@ -31,17 +40,26 @@ const Button = styled.button`
     &:hover {
       ${(props) =>
         props.outline
-          ? `
-            border: 1px solid rgba(164, 55, 219, 1) ;
-            background-color: rgba(188, 97, 233, 0.1);
-          `
+          ? css`
+              border: 1px solid rgba(164, 55, 219, 1);
+              background-color: rgba(188, 97, 233, 0.1);
+            `
           : props.transparent
-          ? `
-            background: rgba(32, 129, 226, 0.2);
-          `
-          : `
-          background: linear-gradient(90deg,rgba(178, 93, 221, 1) 0%,rgba(62, 146, 231, 1) 100%);
-        `}
+          ? css`
+              background: rgba(32, 129, 226, 0.2);
+            `
+          : props.white
+          ? css`
+              border: 1px solid rgba(255, 255, 255, 1);
+              background-color: rgba(255, 255, 255, 0.1);
+            `
+          : css`
+              background: linear-gradient(
+                90deg,
+                rgba(178, 93, 221, 1) 0%,
+                rgba(62, 146, 231, 1) 100%
+              );
+            `}
     }
   }
 `;
@@ -50,19 +68,21 @@ const BlueButton = ({
   title,
   onClick,
   type,
+  white,
   children,
   outline,
   transparent,
-  className = "blue-btn",
+  className = 'blue-btn',
 }) => {
   return (
     <Button
+      white={white}
       transparent={transparent}
-      title={title || "button"}
+      title={title || 'button'}
       outline={outline}
       onClick={onClick}
       className={className}
-      type={type || "button"}
+      type={type || 'button'}
     >
       {children}
     </Button>

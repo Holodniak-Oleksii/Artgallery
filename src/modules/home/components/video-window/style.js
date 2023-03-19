@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -12,5 +12,10 @@ export const Wrapper = styled.div`
     position: absolute;
     width: 0;
     height: 0;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;

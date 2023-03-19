@@ -58,11 +58,11 @@ const Services = ({ items }) => {
           </FakeContainer>
         )}
       </Wrapper>
-      <Content>
+      {/* <Content>
         {servicesText.map((item) => (
           <FlipCard data={item} />
         ))}
-      </Content>
+      </Content> */}
     </Container>
   );
 };

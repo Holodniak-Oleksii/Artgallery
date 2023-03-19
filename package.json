@@ -2,44 +2,87 @@
   "name": "artgallery",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
+    "@next/font": "^13.1.6",
     "@react-three/drei": "^9.56.27",
     "@react-three/fiber": "^8.11.5",
+    "@reduxjs/toolkit": "^1.9.3",
     "axios": "^1.3.4",
-    "craco": "^0.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "dotenv": "^16.0.3",
+    "next": "13.1.6",
+    "nprogress": "^0.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-hook-form": "^7.43.2",
-    "react-player": "^2.12.0",
-    "react-router-dom": "^6.8.1",
-    "react-scripts": "5.0.1",
-    "sass": "^1.58.3",
+    "react-modal": "^3.16.1",
+    "react-redux": "^8.0.5",
+    "react-responsive": "^9.0.2",
+    "react-select": "^5.7.0",
+    "react-wavify": "^1.8.0",
+    "sass": "^1.58.1",
     "styled-components": "^5.3.6",
-    "swiper": "^9.1.0",
+    "swiper": "^9.0.5",
     "three": "^0.150.0"
   },
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^13.1.6",
+    "eslint": "8.34.0",
+    "eslint-config-next": "13.1.6",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-hooks": "^0.4.3",
+    "eslint-plugin-next": "^0.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.4"
   },
   "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "es6": true
+    },
     "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "eslint:recommended",
+      "next/core-web-vitals",
+      "plugin:@next/next/recommended",
+      "plugin:prettier/recommended"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2022,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "import/no-anonymous-default-export": "off",
+      "react/prop-types": "off",
+      "no-unused-vars": "warn",
+      "no-unsafe-optional-chaining": "warn",
+      "no-case-declarations": "off",
+      "react/no-unescaped-entities": "warn"
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "endOfLine": "auto",
+    "arrowParens": "always",
+    "impliedStrict": true,
+    "bracketSameLine": false,
+    "singleAttributePerLine": true
   }
 }

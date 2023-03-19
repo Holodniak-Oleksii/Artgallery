@@ -1,58 +1,129 @@
-import { IconTop, IconDevices, IconCode } from "@/components/icons";
+import { IconTop, IconDevices, IconCode } from '@/components/icons';
 
-import image1 from "@/assets/images/cards/1.jpg";
-import image2 from "@/assets/images/cards/2.webp";
-import image3 from "@/assets/images/cards/3.jpeg";
-import image4 from "@/assets/images/cards/4.jpeg";
+import image1 from '@/assets/images/cards/1.jpg';
+import image2 from '@/assets/images/cards/2.webp';
+import image3 from '@/assets/images/cards/3.jpeg';
+import image4 from '@/assets/images/cards/4.jpeg';
+
+import imageCard from '@/assets/images/cards/5.webp';
+import imageNFT from '@/assets/images/cards/6.png';
+
+import category1 from '@/assets/images/categories/1.png';
+import category2 from '@/assets/images/categories/2.png';
+import category3 from '@/assets/images/categories/3.png';
+import category4 from '@/assets/images/categories/4.png';
+import category5 from '@/assets/images/categories/5.png';
+import category6 from '@/assets/images/categories/6.webp';
+import category7 from '@/assets/images/categories/7.webp';
+import category8 from '@/assets/images/categories/8.png';
+
+export const categories = [
+  {
+    id: 0,
+    image: category1,
+    title: 'Architecture',
+  },
+  {
+    id: 1,
+    image: category2,
+    title: 'Clothes',
+  },
+  {
+    id: 2,
+    image: category3,
+    title: 'Vehicles',
+  },
+  {
+    id: 3,
+    image: category4,
+    title: 'Weapons',
+  },
+  {
+    id: 4,
+    image: category5,
+    title: 'Machines',
+  },
+  {
+    id: 5,
+    image: category6,
+    title: 'Abstract',
+  },
+  {
+    id: 6,
+    image: category7,
+    title: 'People',
+  },
+  {
+    id: 7,
+    image: category8,
+    title: 'Animals',
+  },
+];
+
+export const text = [
+  {
+    title: 'Find inspiration for your ideas in the 3D art gallery.',
+    paragraph: `We will help you dive into the world of 3D technologies and become a
+    builder of a new reality.Experience the limitless possibilities of 3D
+    technology and unleash your imagination to shape a new world of
+    endless opportunities.`,
+    image: imageCard,
+  },
+  {
+    title: 'Welcome to our 3D art gallery',
+    paragraph: `Welcome to our 3D art gallery, where you can immerse yourself in the world of incredible virtual artworks! Our collection encompasses a wide range of styles and themes that will leave no one indifferent. You will be able to enjoy a detailed view of each piece and feel the beauty of 3D art. We invite all art lovers to visit our gallery!`,
+    image: imageNFT,
+  },
+];
 
 export const cardsNew = [
   {
     id: 0,
-    title: "Exploration",
+    title: 'Exploration',
     image: image1,
-    author: "neiborth",
+    author: 'neiborth',
   },
   {
     id: 1,
-    title: "Exploration",
+    title: 'Exploration',
     image: image2,
-    author: "neiborth",
+    author: 'neiborth',
   },
   {
     id: 2,
-    title: "Exploration",
+    title: 'Exploration',
     image: image3,
-    author: "neiborth",
+    author: 'neiborth',
   },
   {
     id: 3,
-    title: "Exploration",
+    title: 'Exploration',
     image: image4,
-    author: "neiborth",
+    author: 'neiborth',
   },
   {
     id: 4,
-    title: "Exploration",
+    title: 'Exploration',
     image: image1,
-    author: "neiborth",
+    author: 'neiborth',
   },
   {
     id: 5,
-    title: "Exploration",
+    title: 'Exploration',
     image: image2,
-    author: "neiborth",
+    author: 'neiborth',
   },
   {
     id: 6,
-    title: "Exploration",
+    title: 'Exploration',
     image: image3,
-    author: "neiborth",
+    author: 'neiborth',
   },
   {
     id: 7,
-    title: "Exploration",
+    title: 'Exploration',
     image: image4,
-    author: "neiborth",
+    author: 'neiborth',
   },
 ];
 
@@ -60,19 +131,19 @@ export const services = [
   {
     id: 0,
     icon: <IconTop />,
-    text: "Market-leading 3D player for the web.",
+    text: 'Market-leading 3D player for the web.',
     image: image1,
   },
   {
     id: 1,
     icon: <IconDevices />,
-    text: "Works with all operating systems, browsers and devices.",
+    text: 'Works with all operating systems, browsers and devices.',
     image: image2,
   },
   {
     id: 2,
     icon: <IconCode />,
-    text: "Embeddable everywhere, for eCommerce, advertising and social media.",
+    text: 'Embeddable everywhere, for eCommerce, advertising and social media.',
     image: image3,
   },
 ];
@@ -80,27 +151,27 @@ export const services = [
 export const servicesText = [
   {
     id: 0,
-    text: "Market-leading 3D player for the web.",
+    text: 'Market-leading 3D player for the web.',
     image: image1,
   },
   {
     id: 1,
-    text: "Works with all operating systems, browsers and devices.",
+    text: 'Works with all operating systems, browsers and devices.',
     image: image2,
   },
   {
     id: 2,
-    text: "Embeddable everywhere, for eCommerce, advertising and social media.",
+    text: 'Embeddable everywhere, for eCommerce, advertising and social media.',
     image: image3,
   },
   {
     id: 3,
-    text: "Market-leading 3D player for the web.",
+    text: 'Market-leading 3D player for the web.',
     image: image1,
   },
   {
     id: 4,
-    text: "Works with all operating systems, browsers and devices.",
+    text: 'Works with all operating systems, browsers and devices.',
     image: image2,
   },
 ];
@@ -108,59 +179,59 @@ export const servicesText = [
 export const ThreeDExample = [
   {
     id: 0,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/1.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/1.jpg',
   },
   {
     id: 1,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/2.jpeg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/2.jpeg',
   },
   {
     id: 2,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/3.jpeg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/3.jpeg',
   },
   {
     id: 3,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/4.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/4.jpg',
   },
   {
     id: 4,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/5.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/5.jpg',
   },
   {
     id: 5,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/6.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/6.jpg',
   },
   {
     id: 6,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/7.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/7.jpg',
   },
   {
     id: 7,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/8.png",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/8.png',
   },
   {
     id: 8,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/9.jpeg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/9.jpeg',
   },
   {
     id: 9,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/10.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/10.jpg',
   },
   {
     id: 10,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/11.jpeg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/11.jpeg',
   },
   {
     id: 11,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/12.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/12.jpg',
   },
   {
     id: 12,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/13.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/13.jpg',
   },
   {
     id: 13,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/14.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/14.jpg',
   },
   // {
   //   id: 14,
@@ -168,22 +239,22 @@ export const ThreeDExample = [
   // },
   {
     id: 15,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/16.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/16.jpg',
   },
   {
     id: 16,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/17.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/17.jpg',
   },
   {
     id: 17,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/18.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/18.jpg',
   },
   {
     id: 18,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/19.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/19.jpg',
   },
   {
     id: 19,
-    path: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/20.jpg",
+    path: 'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/images/20.jpg',
   },
 ];

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -17,6 +17,6 @@ export const Head = styled.div`
   .head-title {
     font-size: 20px;
     line-height: 24px;
-    font-weight: 500;
+    font-weight: 600;
   }
 `;

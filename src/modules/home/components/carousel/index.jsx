@@ -1,26 +1,27 @@
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Autoplay } from "swiper";
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Autoplay } from 'swiper';
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css";
+import 'swiper/css';
+import 'swiper/css';
 
-import "swiper/css/effect-coverflow";
-import { Wrapper, Card, Title, Explore } from "./style";
+import 'swiper/css/effect-coverflow';
+import { Wrapper, Card, Title, Explore } from './style';
 
 // import required modules
-import { BlueButton } from "@/components/ui";
+import { BlueButton } from '@/components/ui';
+import Image from 'next/image';
 
 const Carousel = ({ items }) => {
   const [active, setActive] = useState(null);
   return (
     <Wrapper>
-      <Explore className=' subtitle'>
+      <Explore className=" subtitle">
         By adding 3D models, you expand the range of our capabilities
       </Explore>
       <Swiper
-        effect={"coverflow"}
+        effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={5}
@@ -30,6 +31,7 @@ const Carousel = ({ items }) => {
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
+        slideToClickedSlide={'true'}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -39,7 +41,7 @@ const Carousel = ({ items }) => {
         }}
         pagination={true}
         modules={[EffectCoverflow, Autoplay]}
-        className='mySwiper'
+        className="mySwiper"
         onSlideChange={(swiper) => {
           setActive(swiper.realIndex);
         }}
@@ -47,10 +49,16 @@ const Carousel = ({ items }) => {
         {items.map((item, id) => (
           <SwiperSlide key={item.id}>
             <Card active={id === active}>
-              <img src={item.path} alt={"3d model"} />
-              <Title className='details'>
-                <span className='title'>User Userovish</span>
-                <span className='user'>@bagdekw</span>
+              <Image
+                height={400}
+                width={300}
+                src={item.path}
+                alt={'3d model'}
+                placeholder="empty"
+              />
+              <Title className="details">
+                <span className="title">User Userovish</span>
+                <span className="user">@bagdekw</span>
                 <BlueButton>View All</BlueButton>
               </Title>
             </Card>

@@ -1,5 +1,6 @@
-import styled, { css, keyframes } from "styled-components";
-import { flex_center } from "@/assets/scss/global";
+import styled, { css, keyframes } from 'styled-components';
+import { flex_center } from '@/assets/scss/global';
+import Image from 'next/image';
 
 const animationSmall = keyframes`
  0%{
@@ -43,6 +44,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 600px;
+  ${(props) => props.revert && 'flex-direction: row-reverse;'}
 `;
 
 export const Integration = styled.div`
@@ -54,14 +56,13 @@ export const Integration = styled.div`
 export const Content = styled.div`
   width: 45%;
   display: flex;
-
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
 `;
 
-export const Image = styled.img`
+export const Picture = styled(Image)`
   height: 450px;
   width: auto;
   border-radius: 14px;
@@ -70,18 +71,18 @@ export const Image = styled.img`
 export const Drop = styled.div`
   ${(props) =>
     props.small
-      ? `
-    top: -30px;
-    right: 30px;
-    height: 140px;
-    width: 140px;
-  `
-      : `
-  bottom: -30px;
-  left: 0;
-  height: 200px;
-  width: 200px;
-  `}
+      ? css`
+          top: -30px;
+          right: 30px;
+          height: 140px;
+          width: 140px;
+        `
+      : css`
+          bottom: -30px;
+          left: 0;
+          height: 200px;
+          width: 200px;
+        `}
 
   position: absolute;
 
@@ -100,33 +101,33 @@ export const Drop = styled.div`
   border: 2px solid #3d93ff;
 
   ::before {
-    content: "";
+    content: '';
     position: absolute;
     height: 100%;
     width: 100%;
     background: #318cfe;
-    box-shadow: -10px 20px 6px #1b6cfb, -20px 40px 22px #1b6cfb,
+    box-shadow: -6px 10px 6px #1b6cfb, -10px 20px 12px #1b6cfb,
       inset -6px 6px 10px #1b6cfb, inset 2px 6px 10px #1a74e5,
-      inset 20px -20px 22px white, inset 40px -40px 44px #a8ceff;
+      inset 20px -20px 22px white, inset 40px -40px 24px #a8ceff;
   }
 
   ::after {
-    content: "";
+    content: '';
     position: absolute;
     ${(props) =>
       props.small
-        ? `
-        height: 20px;
-    width: 20px;
-    left: 80px;
-    top: 30px;
-      `
-        : `
-      height: 40px;
-    width: 40px;
-    left: 120px;
-    top: 40px;
-      `}
+        ? css`
+            height: 20px;
+            width: 20px;
+            left: 80px;
+            top: 30px;
+          `
+        : css`
+            height: 40px;
+            width: 40px;
+            left: 120px;
+            top: 40px;
+          `}
 
     background: #e6fdfb;
     border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
