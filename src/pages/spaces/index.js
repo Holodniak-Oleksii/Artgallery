@@ -1,15 +1,14 @@
+import { SpacesService } from '@/services/spaces';
 import Spaces from '@/modules/spaces';
 
 export const getStaticProps = async () => {
-  const allResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_BASE_URL}/all`
-  );
-  const all = await allResponse.json();
+  const all = await SpacesService.getSpaces();
   return {
     props: {
-      data: all,
+      all,
     },
+    revalidate: 120,
   };
 };
 
-export default (props) => <Spaces data={props.data} />;
+export default (props) => <Spaces data={props.all} />;

@@ -13,7 +13,7 @@ import { LoadGLTF } from '../load';
 import { imageContext } from '../../../modules/create';
 import ErrorBoundary from '@/helpers/errorBoundary';
 
-export const Preloader3D = ({ url, format }) => {
+const Preloader3D = ({ url, format }) => {
   switch (format) {
     case 'glb':
     case 'gltf':
@@ -33,7 +33,7 @@ const Scene = ({ url }) => {
       bounds.clip();
       bounds.fit();
     }, [url]);
-    return <></>;
+    return null;
   };
 
   const GetImage = () => {
@@ -47,12 +47,13 @@ const Scene = ({ url }) => {
       }
     }, [image]);
 
-    return <></>;
+    return null;
   };
 
   return (
     <ErrorBoundary>
       <Canvas
+        onScroll={(e) => e.stopPropagation()}
         style={{ pointerEvents: 'visible' }}
         shadows
       >
@@ -60,20 +61,15 @@ const Scene = ({ url }) => {
           makeDefault
           position={new Vector3(0, 0, 100)}
         />
-        <ambientLight
-          intensity={1.3}
-          color={'0xffffff'}
-        />
+        <ambientLight intensity={1.3} />
         <directionalLight
           intensity={0.4}
           castShadow
-          color={'0xffffff'}
         />
         <Suspense fallback={<Html center>Loading...</Html>}>
           <Bounds
             fit
             clip
-            observe
             damping={6}
             margin={1.2}
           >
@@ -88,3 +84,5 @@ const Scene = ({ url }) => {
     </ErrorBoundary>
   );
 };
+
+export default Preloader3D;

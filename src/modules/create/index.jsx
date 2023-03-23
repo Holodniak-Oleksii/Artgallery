@@ -1,10 +1,8 @@
 import Container from '@/components/containers';
 import { Icon3D, IconCategory } from '@/components/icons';
 import { BlueButton, Input, SelectMulti } from '@/components/ui';
-import axios from 'axios';
 import React, { createContext, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { Preloader3D } from '@/components/3D/preloader';
 import { dataURLtoFile } from '@/helpers/base64toFile';
 import {
   OBJContainer,
@@ -17,6 +15,10 @@ import {
   Upload,
 } from './style';
 import { categories } from './data';
+import { SpacesService } from '@/services/spaces';
+import coverSelectData from '@/helpers/coverSelectData';
+import Preloader3D from '@/components/3D/preloader';
+
 export const imageContext = createContext();
 
 const Create = () => {
@@ -38,18 +40,17 @@ const Create = () => {
         file: e.target.files[0],
       });
     }
-    //   format = file.name.split('.').pop().toLowerCase()
   };
+
   const onSubmit = async (data) => {
-    console.log('🚀 ~ file: index.jsx:38 ~ onSubmit ~ data:', data);
     const form = new FormData();
+
     form.append('name', data.name);
     form.append('image', dataURLtoFile(image.image, 'image.png'));
     form.append('file3D', file.file);
+    form.append('categories', coverSelectData(data.categories));
 
-    console.log(form);
-    axios
-      .post(`${process.env.NEXT_PUBLIC_APP_BASE_URL}/add`, form)
+    SpacesService.createSpace(form)
       .then(function (response) {
         console.log(response);
         resetHandler();
@@ -58,9 +59,11 @@ const Create = () => {
         console.log(error);
       });
   };
+
   const handlerClick = () => {
     setImage((prev) => ({ ...prev, click: true }));
   };
+
   return (
     <imageContext.Provider value={{ setImage, image }}>
       <Container>
@@ -132,10 +135,10 @@ const Create = () => {
               />
               <SelectMulti
                 icon={<IconCategory />}
-                name="category"
-                title="Category"
+                name="categories"
+                title="Categories"
                 options={categories}
-                placeholder="Category"
+                placeholder="Categories"
                 rules={{ required: 'This field is required' }}
               />
               <BlueButton type={'submit'}>Submit</BlueButton>

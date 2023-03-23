@@ -13,10 +13,7 @@ import { LoadGLTF } from '../load';
 const Scene = ({ url }) => {
   const { progress } = useProgress();
   return (
-    <Canvas
-      style={{ pointerEvents: 'visible' }}
-      shadows
-    >
+    <Canvas shadows>
       <OrbitControls makeDefault />
       <ambientLight intensity={0.6} />
       <directionalLight intensity={0.5} />
@@ -30,7 +27,7 @@ const Scene = ({ url }) => {
         <Bounds
           fit
           clip
-          observe
+          // observe
           damping={6}
           margin={1.2}
         >

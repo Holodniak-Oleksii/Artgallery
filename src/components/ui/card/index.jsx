@@ -12,8 +12,8 @@ const CardModel = ({ data }) => {
         src={data.image || data.pathImage}
         alt="model"
         className="image"
-        width={600}
-        height={600}
+        width={1200}
+        height={900}
       />
       <InformationBar>
         <span className="title">{data.title || data.name}</span>

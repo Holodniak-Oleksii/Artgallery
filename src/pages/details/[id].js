@@ -1,24 +1,25 @@
+import { SpacesService } from '@/services/spaces';
 import Details from '@/modules/detail';
 
-export const getServerSideProps = async (context) => {
-  const { id } = context.query;
-
-  const allResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_BASE_URL}/detail`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+export const getStaticPaths = async () => {
+  const all = await SpacesService.getSpaces();
+  return {
+    paths: all.map((space) => ({
+      params: {
+        id: space._id,
       },
-      body: JSON.stringify({ id: id }),
-    }
-  );
-  const all = await allResponse.json();
+    })),
+    fallback: 'blocking',
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const details = await SpacesService.getSingleSpace(params.id);
   return {
     props: {
-      data: all[0],
+      details,
     },
   };
 };
 
-export default (props) => <Details data={props.data} />;
+export default (props) => <Details data={props.details} />;

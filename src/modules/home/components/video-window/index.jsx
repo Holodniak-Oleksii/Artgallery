@@ -6,7 +6,12 @@ import gif from '@/assets/images/gif/banner.gif';
 const VideoWindow = () => {
   return (
     <Wrapper className="video-container">
-      <Image src={gif} />
+      <Image
+        src={gif}
+        alt="banner"
+        width={800}
+        height={600}
+      />
       <svg class="svg">
         <clipPath
           id="my-clip-path"
