@@ -4,8 +4,7 @@ import Scene from '@/components/3D/scene';
 import { Wrapper, Obj, Row } from './style';
 
 const Details = ({ data }) => {
-  console.log('🚀 ~ file: index.jsx:7 ~ Details ~ data:', data);
-  const { name, path3D, categories } = data;
+  const { name, path3D, categories, description } = data;
   return (
     <Wrapper>
       <Obj>
@@ -24,6 +23,9 @@ const Details = ({ data }) => {
               <br />
             </>
           ))}
+      </Row>
+      <Row>
+        <p>{description}</p>
       </Row>
     </Wrapper>
   );

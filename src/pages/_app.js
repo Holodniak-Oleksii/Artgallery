@@ -1,9 +1,12 @@
+import NProgress from 'nprogress';
+import Router, { useRouter } from 'next/router';
+import { Provider } from 'react-redux';
+
+import '@/components/modals/register';
 import Layout from '@/layout';
 
 import '@/assets/scss/index.scss';
-
-import NProgress from 'nprogress';
-import Router, { useRouter } from 'next/router';
+import { store } from '@/store';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -19,7 +22,11 @@ const MyApp = ({ Component, pageProps }) => {
   const renderWithLayout =
     Component.getLayout ||
     function (page) {
-      return <Layout>{page}</Layout>;
+      return (
+        <Provider store={store}>
+          <Layout>{page}</Layout>
+        </Provider>
+      );
     };
 
   return renderWithLayout(

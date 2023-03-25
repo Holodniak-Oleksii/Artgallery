@@ -1,5 +1,6 @@
 import { SpacesService } from '@/services/spaces';
 import Spaces from '@/modules/spaces';
+import Meta from '@/components/meta';
 
 export const getStaticProps = async () => {
   const all = await SpacesService.getSpaces();
@@ -7,8 +8,13 @@ export const getStaticProps = async () => {
     props: {
       all,
     },
-    revalidate: 120,
+    revalidate: +process.env.REVALIDATE,
   };
 };
 
-export default (props) => <Spaces data={props.all} />;
+export default (props) => (
+  <>
+    <Meta title="SPACES" />
+    <Spaces data={props.all} />
+  </>
+);

@@ -6,6 +6,8 @@ const nextConfig = {
   },
   env: {
     BASE_URL: process.env.BASE_URL,
+    REVALIDATE: process.env.REVALIDATE,
+    DAY_REVALIDATE: process.env.DAY_REVALIDATE,
   },
   images: {
     remotePatterns: [

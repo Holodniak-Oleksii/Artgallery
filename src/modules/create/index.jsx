@@ -1,6 +1,6 @@
 import Container from '@/components/containers';
 import { Icon3D, IconCategory } from '@/components/icons';
-import { BlueButton, Input, SelectMulti } from '@/components/ui';
+import { BlueButton, Input, SelectMulti, TextArea } from '@/components/ui';
 import React, { createContext, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { dataURLtoFile } from '@/helpers/base64toFile';
@@ -46,6 +46,7 @@ const Create = () => {
     const form = new FormData();
 
     form.append('name', data.name);
+    form.append('description', data.description);
     form.append('image', dataURLtoFile(image.image, 'image.png'));
     form.append('file3D', file.file);
     form.append('categories', coverSelectData(data.categories));
@@ -132,6 +133,16 @@ const Create = () => {
                   required: true,
                 }}
                 name="name"
+              />
+              <TextArea
+                title="Description"
+                iconFront={<Icon3D />}
+                placeholder={'Description max 500 characters'}
+                rules={{
+                  required: true,
+                  maxLength: 500,
+                }}
+                name="description"
               />
               <SelectMulti
                 icon={<IconCategory />}

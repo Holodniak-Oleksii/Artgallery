@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import { flex_center } from '@/assets/scss/global';
-import Link from 'next/link';
 
 export const Wrapper = styled.header`
   height: 80px;
@@ -14,7 +14,7 @@ export const Wrapper = styled.header`
   box-shadow: 0 0 8px rgba(207, 206, 206, 0.811);
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   height: 100%;
   margin-right: auto;
   .header-logo {

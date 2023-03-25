@@ -1,5 +1,6 @@
 import { flex_center } from '@/assets/scss/global';
 import styled from 'styled-components';
+import { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   height: ${(props) => (props.free ? '44px' : '64px')};
@@ -9,20 +10,27 @@ export const Wrapper = styled.div`
   width: 100%;
   justify-content: flex-start;
   gap: 2px;
+  ${(props) =>
+    props.area &&
+    `
+      height: 112px;
+    `}
 `;
 export const Container = styled.div`
   min-height: 44px;
   width: 100%;
   display: flex;
   position: relative;
+
   .field {
+    resize: none;
     width: 100%;
     height: 100%;
     cursor: pointer;
     border-radius: 2px;
     border-radius: 8px;
     ${(props) => props.haveDoubleIcon && `padding: 0 44px 0 44px `};
-    ${(props) => !props.haveDoubleIcon && `padding: 0 22px 0 22px `};
+    ${(props) => !props.haveDoubleIcon && `padding: 0 12px 0 12px `};
     ${(props) => props.leftIcon && `padding: 0 22px 0 44px `};
     ${(props) => props.rightIcon && `padding: 0 44px 0 22px `};
     ${(props) =>
@@ -42,6 +50,14 @@ export const Container = styled.div`
       color: #89a4fd;
     }
   }
+  ${(props) =>
+    props.area &&
+    `
+      height: 100px;
+      .field {
+        padding-top: 12px;
+      }
+    `}
 `;
 
 export const Icon = styled.button`

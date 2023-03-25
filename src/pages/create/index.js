@@ -1,5 +1,12 @@
-import React from 'react';
-
+import Meta from '@/components/meta';
+import withAuth from '@/helpers/withAuth';
 import Create from '@/modules/create';
 
-export default () => <Create />;
+const CreatePage = () => (
+  <>
+    <Meta title="Create Art" />
+    <Create />
+  </>
+);
+
+export default withAuth(CreatePage);

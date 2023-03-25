@@ -1,40 +1,77 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { useModal } from '@ebay/nice-modal-react';
 
 import { IconLogo } from '@/components/icons';
+import { BlueButton } from '@/components/ui';
 
 import { Wrapper, Row, Logo, Navigations, Item, Group } from './style';
+
 import { navigations } from '../data';
-import { BlueButton } from '@/components/ui';
+import { MODALS } from '@/components/modals/register';
+import { useUser } from '@/store/selectors';
+import { logoutUserAction } from '@/store/actions/user';
 
 const Header = () => {
   const { pathname } = useRouter();
+  const { show: showLogin } = useModal(MODALS.LOGIN);
+  const { show: showRegistration } = useModal(MODALS.REGISTRATION);
+  const { isAuth, isLoading, userID } = useUser();
   return (
     <Wrapper>
       <Row>
-        <Logo>
+        <Logo href="/">
           <IconLogo className="header-logo" />
         </Logo>
-        <Navigations>
-          {navigations.map((item) => (
-            <Item
-              active={pathname === item.path}
-              key={item.id}
-              href={item.path}
-            >
-              {item.name}
-            </Item>
-          ))}
-        </Navigations>
-        <Group>
-          <BlueButton title="sign in">Sign in</BlueButton>
-          <BlueButton
-            title="sign up"
-            outline
-          >
-            Sign up
-          </BlueButton>
-        </Group>
+        {!isLoading && (
+          <>
+            <Navigations>
+              {navigations.map((item) => (
+                <Item
+                  active={pathname === item.path}
+                  key={item.id}
+                  href={item.path}
+                >
+                  {item.name}
+                </Item>
+              ))}
+              {isAuth && (
+                <Item
+                  active={pathname.includes('profile')}
+                  href={`/profile/${userID}`}
+                >
+                  Profile
+                </Item>
+              )}
+            </Navigations>
+            {isAuth ? (
+              <Group>
+                <BlueButton
+                  title="log out"
+                  onClick={() => logoutUserAction()}
+                >
+                  Log out
+                </BlueButton>
+              </Group>
+            ) : (
+              <Group>
+                <BlueButton
+                  title="sign in"
+                  onClick={() => showLogin()}
+                >
+                  Sign in
+                </BlueButton>
+                <BlueButton
+                  title="sign up"
+                  onClick={() => showRegistration()}
+                  outline
+                >
+                  Sign up
+                </BlueButton>
+              </Group>
+            )}
+          </>
+        )}
       </Row>
     </Wrapper>
   );

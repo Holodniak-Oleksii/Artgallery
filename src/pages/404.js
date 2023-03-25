@@ -1,9 +1,12 @@
-import React from 'react'
+import Meta from '@/components/meta';
 
 const NotFound = () => {
   return (
-    <div>404</div>
-  )
-}
+    <>
+      <Meta title="404" />
+      <div>404</div>
+    </>
+  );
+};
 
-export default NotFound
+export default NotFound;

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ebay/nice-modal-react": "^1.2.9",
     "@next/font": "^13.1.6",
     "@react-three/drei": "^9.56.27",
     "@react-three/fiber": "^8.11.5",

@@ -40,6 +40,9 @@ body {
   -webkit-text-size-adjust: 100%;
   font-style: normal;
   font-weight: 400;
+  &.ReactModal__Body--open {
+    overflow: hidden !important;
+  }
 }
 
 input,
@@ -117,17 +120,17 @@ h6 {
 * {
   -webkit-tap-highlight-color: transparent;
 }
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
   color: #191919;
 }
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
-input[type="number"]:hover,
-input[type="number"]:focus {
+input[type='number']:hover,
+input[type='number']:focus {
   -moz-appearance: number-input;
 }
 
@@ -165,4 +168,28 @@ a {
 
 img {
   pointer-events: none;
+}
+
+.ReactModal__Overlay {
+  background: rgba(0, 0, 0, 0) !important;
+  z-index: 9999;
+  width: 100vw;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ReactModal__Content {
+  padding: 0 !important;
+  position: static !important;
+  background: none !important;
+  border: none !important;
+  overflow: visible !important;
+  margin: auto;
+  max-width: 100vw;
+  height: 100% !important;
+  width: 100% !important;
 }

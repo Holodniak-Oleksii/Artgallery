@@ -1,17 +1,27 @@
-import axios from 'axios';
-
-axios.defaults.baseURL = process.env.BASE_URL;
+import axios from './base';
 
 export const SpacesService = {
   async getSpaces() {
-    const { data } = await axios.get('/all');
-    return data;
+    try {
+      const { data } = await axios.get('/space/all');
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   },
   async getSingleSpace(id) {
-    const { data } = await axios.post('/detail', { id });
-    return data;
+    try {
+      const { data } = await axios.post('/space/detail', { id });
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   },
   async createSpace(data) {
-    await axios.post('/add', data);
+    try {
+      await axios.post('/add', data);
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
