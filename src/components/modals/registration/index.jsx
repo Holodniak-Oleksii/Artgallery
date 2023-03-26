@@ -5,27 +5,35 @@ import { IconEmail, IconPassword, IconPerson } from '@/components/icons';
 import { BlueButton, Input } from '@/components/ui';
 import TemplateModal from './../index';
 
-import { Form } from './../style';
 import { patterns } from '@/helpers/patterns';
 import { MODALS } from '../register';
 import { AuthService } from '@/services/user';
+import { useUser } from '@/store/selectors';
 import { loginUserAction } from '@/store/actions/user';
+
+import { Form } from './../style';
 
 const RegistrationModal = create(({ id }) => {
   const { hide, visible } = useModal(id);
   const methods = useForm({ mode: 'onSubmit' });
-  const { handleSubmit, reset } = methods;
+  const { handleSubmit, reset, setError } = methods;
   const { show: showLogin } = useModal(MODALS.LOGIN);
 
   const onSubmit = async (data) => {
     try {
-      console.log('🚀 ~ file: index.jsx:11 ~ onSubmit ~ data:', data);
       const user = await AuthService.register(data);
-      loginUserAction({ token: user.token, userID: user.userId, isAuth: true });
-      reset();
-      hide();
+      loginUserAction({
+        token: user?.token,
+        userID: user?.userId,
+        isAuth: user?.isAuth,
+      });
+      if (user?.isAuth) {
+        hide();
+        reset();
+      }
     } catch (e) {
-      console.error(e);
+      const { filed, message } = e.response.data;
+      setError(filed, { type: 'custom', message });
     }
   };
 

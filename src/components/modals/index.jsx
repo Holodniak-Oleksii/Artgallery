@@ -1,7 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { IconClose } from '@/components/icons';
-import { Wrapper, Column, Container, Title, CloseBtn } from './style';
+import { Wrapper, Column, Container, Title } from './style';
+import { CloseBtn } from '../style';
 
 const TemplateModal = ({ children, open, close, title }) => {
   return (

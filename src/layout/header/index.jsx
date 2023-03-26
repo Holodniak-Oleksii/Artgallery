@@ -10,13 +10,13 @@ import { Wrapper, Row, Logo, Navigations, Item, Group } from './style';
 import { navigations } from '../data';
 import { MODALS } from '@/components/modals/register';
 import { useUser } from '@/store/selectors';
-import { logoutUserAction } from '@/store/actions/user';
+import Account from './account';
 
 const Header = () => {
   const { pathname } = useRouter();
   const { show: showLogin } = useModal(MODALS.LOGIN);
   const { show: showRegistration } = useModal(MODALS.REGISTRATION);
-  const { isAuth, isLoading, userID } = useUser();
+  const { isAuth, isLoading } = useUser();
   return (
     <Wrapper>
       <Row>
@@ -35,24 +35,9 @@ const Header = () => {
                   {item.name}
                 </Item>
               ))}
-              {isAuth && (
-                <Item
-                  active={pathname.includes('profile')}
-                  href={`/profile/${userID}`}
-                >
-                  Profile
-                </Item>
-              )}
             </Navigations>
             {isAuth ? (
-              <Group>
-                <BlueButton
-                  title="log out"
-                  onClick={() => logoutUserAction()}
-                >
-                  Log out
-                </BlueButton>
-              </Group>
+              <Account />
             ) : (
               <Group>
                 <BlueButton

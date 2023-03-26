@@ -16,7 +16,8 @@ export const renderError = (hasError, rules) => {
       return hasError?.message;
     case 'pattern':
       return hasError?.message;
-
+    case 'custom':
+      return hasError?.message;
     default:
       return 'The field is filled incorrectly';
   }

@@ -14,17 +14,23 @@ import { loginUserAction } from '@/store/actions/user';
 const LoginModal = create(({ id }) => {
   const { hide, visible } = useModal(id);
   const methods = useForm({ mode: 'onSubmit' });
-  const { handleSubmit, reset } = methods;
+  const { handleSubmit, reset, setError } = methods;
   const { show: showRegistration } = useModal(MODALS.REGISTRATION);
-
   const onSubmit = async (data) => {
     try {
       const user = await AuthService.login(data);
-      loginUserAction({ token: user.token, userID: user.userId, isAuth: true });
-      hide();
-      reset();
+      loginUserAction({
+        token: user?.token,
+        userID: user?.userId,
+        isAuth: user?.isAuth,
+      });
+      if (user?.isAuth) {
+        hide();
+        reset();
+      }
     } catch (e) {
-      console.error(e);
+      const { filed, message } = e.response.data;
+      setError(filed, { type: 'custom', message });
     }
   };
 

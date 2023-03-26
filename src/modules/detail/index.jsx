@@ -4,7 +4,7 @@ import Scene from '@/components/3D/scene';
 import { Wrapper, Obj, Row } from './style';
 
 const Details = ({ data }) => {
-  const { name, path3D, categories, description } = data;
+  const { name, path3D, categories, description, owner, ownerId } = data;
   return (
     <Wrapper>
       <Obj>
@@ -26,6 +26,10 @@ const Details = ({ data }) => {
       </Row>
       <Row>
         <p>{description}</p>
+      </Row>
+      <Row>
+        owner:
+        <p>{owner}</p>
       </Row>
     </Wrapper>
   );

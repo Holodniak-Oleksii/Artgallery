@@ -12,7 +12,7 @@ const VideoWindow = () => {
         width={800}
         height={600}
       />
-      <svg class="svg">
+      <svg className="svg">
         <clipPath
           id="my-clip-path"
           clipPathUnits="objectBoundingBox"

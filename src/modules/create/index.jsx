@@ -18,6 +18,7 @@ import { categories } from './data';
 import { SpacesService } from '@/services/spaces';
 import coverSelectData from '@/helpers/coverSelectData';
 import Preloader3D from '@/components/3D/preloader';
+import { useUser } from '@/store/selectors';
 
 export const imageContext = createContext();
 
@@ -25,7 +26,8 @@ const Create = () => {
   const [file, setFile] = useState({ url: null, file: null });
   const [image, setImage] = useState({ image: null, click: false });
   const methods = useForm({ mode: 'onSubmit' });
-  const { handleSubmit, reset, setValue, register } = methods;
+  const { userID, token } = useUser();
+  const { handleSubmit, reset, register } = methods;
 
   const resetHandler = () => {
     setFile({ url: null, file: null });
@@ -42,16 +44,24 @@ const Create = () => {
     }
   };
 
-  const onSubmit = async (data) => {
-    const form = new FormData();
+  const onSubmit = (data) => {
+    console.log('🚀 ~ file: index.jsx:48 ~ onSubmit ~ data:', data);
+    const send = new FormData();
 
-    form.append('name', data.name);
-    form.append('description', data.description);
-    form.append('image', dataURLtoFile(image.image, 'image.png'));
-    form.append('file3D', file.file);
-    form.append('categories', coverSelectData(data.categories));
+    send.append('name', data.name);
+    send.append('description', data.description);
+    send.append('image', dataURLtoFile(image.image, 'image.png'));
+    console.log(
+      '🚀 ~ file: index.jsx:54 ~ onSubmit ~ image.image:',
+      dataURLtoFile(image.image, 'image.png')
+    );
+    send.append('file3D', file.file);
+    console.log('🚀 ~ file: index.jsx:55 ~ onSubmit ~ file.file:', file.file);
+    send.append('categories', coverSelectData(data.categories));
+    send.append('owner', userID);
+    console.log('🚀 ~ file: index.jsx:49 ~ onSubmit ~ send:', send);
 
-    SpacesService.createSpace(form)
+    SpacesService.createSpace(send, token)
       .then(function (response) {
         console.log(response);
         resetHandler();

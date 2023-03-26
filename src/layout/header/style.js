@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 import { flex_center } from '@/assets/scss/global';
+import { CloseBtn } from '@/components/style';
 
 export const Wrapper = styled.header`
   height: 80px;
@@ -60,5 +61,14 @@ export const Navigations = styled.div`
 
 export const Group = styled.div`
   ${flex_center}
-  gap: 8px
+  gap: 8px;
+  .revert {
+    transform: rotate(45deg);
+  }
+`;
+
+export const AccountBtn = styled(CloseBtn)`
+  position: static;
+  aspect-ratio: 1 / 1;
+  padding: 8px;
 `;

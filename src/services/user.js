@@ -2,20 +2,12 @@ import axios from './base';
 
 export const AuthService = {
   async register(form) {
-    try {
-      const { data } = await axios.post('/auth/register', form);
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
+    const { data } = await axios.post('/auth/register', form);
+    return data;
   },
   async login(form) {
-    try {
-      const { data } = await axios.post('/auth/login', form);
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
+    const { data } = await axios.post('/auth/login', form);
+    return data;
   },
   async checkToken(token) {
     try {
@@ -24,7 +16,7 @@ export const AuthService = {
       });
       return data;
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   },
   async getSingleUser(id) {

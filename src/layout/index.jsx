@@ -13,7 +13,7 @@ import { Wrapper, Container } from './style';
 const Layout = ({ children }) => {
   const { token } = useUser();
   useEffect(() => {
-    const load = async () => {
+    const load = () => {
       AuthService.checkToken(token)
         .then(function (response) {
           loginUserAction(response);
