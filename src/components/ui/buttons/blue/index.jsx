@@ -35,6 +35,9 @@ const Button = styled.button`
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
+  &:disabled {
+    opacity: 0.7;
+  }
   @media screen and (min-width: 1024px) {
     transition: all 0.4s ease-in;
     &:hover {
@@ -67,6 +70,7 @@ const Button = styled.button`
 const BlueButton = ({
   title,
   onClick,
+  disabled,
   type,
   white,
   children,
@@ -76,6 +80,7 @@ const BlueButton = ({
 }) => {
   return (
     <Button
+      disabled={disabled}
       white={white}
       transparent={transparent}
       title={title || 'button'}

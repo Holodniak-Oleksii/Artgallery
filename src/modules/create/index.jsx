@@ -3,7 +3,13 @@ import { Icon3D, IconCategory } from '@/components/icons';
 import { BlueButton, Input, SelectMulti, TextArea } from '@/components/ui';
 import React, { createContext, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+
 import { dataURLtoFile } from '@/helpers/base64toFile';
+import { SpacesService } from '@/services/spaces';
+import coverSelectData from '@/helpers/coverSelectData';
+import Preloader3D from '@/components/3D/preloader';
+import { useUser } from '@/store/selectors';
+
 import {
   OBJContainer,
   Wrapper,
@@ -14,25 +20,40 @@ import {
   Center,
   Upload,
 } from './style';
+
 import { categories } from './data';
-import { SpacesService } from '@/services/spaces';
-import coverSelectData from '@/helpers/coverSelectData';
-import Preloader3D from '@/components/3D/preloader';
-import { useUser } from '@/store/selectors';
 
 export const imageContext = createContext();
 
 const Create = () => {
-  const [file, setFile] = useState({ url: null, file: null });
-  const [image, setImage] = useState({ image: null, click: false });
-  const methods = useForm({ mode: 'onSubmit' });
+  const [file, setFile] = useState({ url: null, file: null, send: false });
+  const [image, setImage] = useState({
+    image: null,
+    click: false,
+    send: false,
+  });
+  const [loading, setLoading] = useState(false);
+
+  const methods = useForm({
+    mode: 'onSubmit',
+  });
   const { userID, token } = useUser();
-  const { handleSubmit, reset, register } = methods;
+  const {
+    handleSubmit,
+    reset,
+    register,
+    formState: { errors },
+  } = methods;
 
   const resetHandler = () => {
-    setFile({ url: null, file: null });
-    setImage({ image: null, click: false });
+    setFile({ url: null, file: null, send: false });
+    setImage({ image: null, click: false, send: false });
+    setLoading(false);
     reset();
+  };
+
+  const handlerClick = () => {
+    setImage((prev) => ({ ...prev, click: true, send: true }));
   };
 
   const handlerChange = (e) => {
@@ -40,28 +61,33 @@ const Create = () => {
       setFile({
         url: URL.createObjectURL(e.target.files[0]),
         file: e.target.files[0],
+        send: true,
       });
     }
   };
 
-  const onSubmit = (data) => {
-    console.log('🚀 ~ file: index.jsx:48 ~ onSubmit ~ data:', data);
+  const onSubmit = async (data) => {
+    if (!file.file) {
+      setFile((prev) => ({ ...prev, send: true }));
+      return null;
+    }
+    if (!image.image) {
+      setImage((prev) => ({ ...prev, send: true }));
+      return null;
+    }
     const send = new FormData();
+    const screen = dataURLtoFile(image.image, 'image.png');
+    const categories = coverSelectData(data.categories);
 
     send.append('name', data.name);
     send.append('description', data.description);
-    send.append('image', dataURLtoFile(image.image, 'image.png'));
-    console.log(
-      '🚀 ~ file: index.jsx:54 ~ onSubmit ~ image.image:',
-      dataURLtoFile(image.image, 'image.png')
-    );
+    send.append('image', screen);
     send.append('file3D', file.file);
-    console.log('🚀 ~ file: index.jsx:55 ~ onSubmit ~ file.file:', file.file);
-    send.append('categories', coverSelectData(data.categories));
+    send.append('categories', categories);
     send.append('owner', userID);
-    console.log('🚀 ~ file: index.jsx:49 ~ onSubmit ~ send:', send);
 
-    SpacesService.createSpace(send, token)
+    setLoading(true);
+    SpacesService.createSpace(send)
       .then(function (response) {
         console.log(response);
         resetHandler();
@@ -71,20 +97,17 @@ const Create = () => {
       });
   };
 
-  const handlerClick = () => {
-    setImage((prev) => ({ ...prev, click: true }));
-  };
-
   return (
     <imageContext.Provider value={{ setImage, image }}>
       <Container>
         <FormProvider {...methods}>
           <Form
+            loading={loading}
             onSubmit={handleSubmit(onSubmit)}
             enctype="multipart/form-data"
           >
             <Wrapper>
-              <OBJContainer>
+              <OBJContainer haveError={!file.file && file.send}>
                 {file.url ? (
                   <Preloader3D
                     format={'glb'}
@@ -100,7 +123,7 @@ const Create = () => {
                   </Choose>
                 )}
               </OBJContainer>
-              <OBJContainer>
+              <OBJContainer haveError={!image.image && image.send}>
                 {image.image ? (
                   <Image
                     src={image.image}
@@ -115,6 +138,7 @@ const Create = () => {
             </Wrapper>
             <Flex>
               <BlueButton
+                disabled={!file.file}
                 type={'button'}
                 onClick={handlerClick}
               >
@@ -126,11 +150,10 @@ const Create = () => {
               <input
                 id="file"
                 type="file"
-                {...register('file3D')}
-                onChange={handlerChange}
-                rules={{
-                  required: true,
-                }}
+                {...register('file3D', {
+                  onChange: handlerChange,
+                })}
+                value={file?.file?.filename}
                 name="file3D"
               />
             </Flex>

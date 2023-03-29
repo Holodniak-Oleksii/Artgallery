@@ -1,7 +1,11 @@
 import React from 'react';
-import Scene from '@/components/3D/scene';
+import Link from 'next/link';
 
-import { Wrapper, Obj, Row } from './style';
+import Scene from '@/components/3D/scene';
+import Container from '@/components/containers';
+
+import { Wrapper, Obj, Row, Category } from './style';
+import { IconPerson } from '@/components/icons';
 
 const Details = ({ data }) => {
   const { name, path3D, categories, description, owner, ownerId } = data;
@@ -10,27 +14,24 @@ const Details = ({ data }) => {
       <Obj>
         <Scene url={path3D} />
       </Obj>
-      <Row>
-        <h2 className="title">{name}</h2>
-      </Row>
-      <Row>
-        categories:
-        <br />
-        {!!categories.length &&
-          categories.map((item) => (
-            <>
-              <b>{item}</b>
-              <br />
-            </>
-          ))}
-      </Row>
-      <Row>
-        <p>{description}</p>
-      </Row>
-      <Row>
-        owner:
-        <p>{owner}</p>
-      </Row>
+      <Container>
+        <Row>
+          <h2 className="title">{name}</h2>
+        </Row>
+        <Row>
+          <Link href={`/profile/${ownerId}`}>
+            <IconPerson />
+            {owner}
+          </Link>
+        </Row>
+        <Row>
+          {!!categories?.length &&
+            categories.map((item) => <Category>{item}</Category>)}
+        </Row>
+        <Row>
+          <p>{description}</p>
+        </Row>
+      </Container>
     </Wrapper>
   );
 };

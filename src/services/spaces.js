@@ -17,14 +17,9 @@ export const SpacesService = {
       console.error(error);
     }
   },
-  async createSpace(data, token) {
+  async createSpace(data) {
     try {
-      await axios.post('/add', data, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.post('/add', data);
     } catch (error) {
       console.error(error);
     }

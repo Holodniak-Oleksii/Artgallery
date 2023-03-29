@@ -1,4 +1,5 @@
 import withAuth from '@/helpers/withAuth';
+import ProfilePage from '@/modules/profile';
 import { AuthService } from '@/services/user';
 
 export const getStaticPaths = async () => {
@@ -24,7 +25,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Profile = (props) => {
-  return <div>{JSON.stringify(props.details)}</div>;
+  return <ProfilePage data={props.details} />;
 };
 
 export default withAuth(Profile);

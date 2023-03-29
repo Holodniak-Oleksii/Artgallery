@@ -7,10 +7,15 @@ export const OBJContainer = styled.div`
   height: 100%;
   overflow: hidden;
   border-radius: 20px;
-  border: 1px solid #318cfe;
   display: flex;
   justify-content: center;
   align-items: center;
+  ${(props) =>
+    !props.haveError
+      ? `border: 1px solid #318cfe;`
+      : `border: 1px solid #992d2d;
+      background-color: #ff26260e;
+      `}
 `;
 
 export const Center = styled.div`
@@ -80,7 +85,15 @@ export const Flex = styled.div`
   }
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  position: relative;
+  ${(props) =>
+    props.loading &&
+    `
+    opacity: 0.7;
+    pointer-events: none;
+  `}
+`;
 
 export const Upload = styled.label`
   gap: 4px;

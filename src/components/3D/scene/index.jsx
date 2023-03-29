@@ -15,8 +15,11 @@ const Scene = ({ url }) => {
   return (
     <Canvas shadows>
       <OrbitControls makeDefault />
-      <ambientLight intensity={0.6} />
-      <directionalLight intensity={0.5} />
+      <ambientLight intensity={1.3} />
+      <directionalLight
+        intensity={0.4}
+        castShadow
+      />
       <Suspense
         fallback={
           <Html center>
