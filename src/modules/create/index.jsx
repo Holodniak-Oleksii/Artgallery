@@ -1,9 +1,9 @@
-import Container from '@/components/containers';
-import { Icon3D, IconCategory } from '@/components/icons';
-import { BlueButton, Input, SelectMulti, TextArea } from '@/components/ui';
 import React, { createContext, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
+import Container from '@/components/containers';
+import { Icon3D, IconCategory } from '@/components/icons';
+import { BlueButton, Input, SelectMulti, TextArea } from '@/components/ui';
 import { dataURLtoFile } from '@/helpers/base64toFile';
 import { SpacesService } from '@/services/spaces';
 import coverSelectData from '@/helpers/coverSelectData';
@@ -19,6 +19,7 @@ import {
   Choose,
   Center,
   Upload,
+  Loader,
 } from './style';
 
 import { categories } from './data';
@@ -37,7 +38,7 @@ const Create = () => {
   const methods = useForm({
     mode: 'onSubmit',
   });
-  const { userID, token } = useUser();
+  const { userID, userName } = useUser();
   const {
     handleSubmit,
     reset,
@@ -85,11 +86,11 @@ const Create = () => {
     send.append('file3D', file.file);
     send.append('categories', categories);
     send.append('owner', userID);
+    send.append('ownerName', userName);
 
     setLoading(true);
     SpacesService.createSpace(send)
       .then(function (response) {
-        console.log(response);
         resetHandler();
       })
       .catch(function (error) {
@@ -106,6 +107,11 @@ const Create = () => {
             onSubmit={handleSubmit(onSubmit)}
             enctype="multipart/form-data"
           >
+            {loading && (
+              <Loader>
+                <div className={'spinner'} />
+              </Loader>
+            )}
             <Wrapper>
               <OBJContainer haveError={!file.file && file.send}>
                 {file.url ? (
@@ -183,7 +189,7 @@ const Create = () => {
                 title="Categories"
                 options={categories}
                 placeholder="Categories"
-                rules={{ required: 'This field is required' }}
+                rules={{ required: true }}
               />
               <BlueButton type={'submit'}>Submit</BlueButton>
             </Center>

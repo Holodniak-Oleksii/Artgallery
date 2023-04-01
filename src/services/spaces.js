@@ -24,4 +24,12 @@ export const SpacesService = {
       console.error(error);
     }
   },
+  async filterSpace(filter) {
+    try {
+      const { data } = await axios.post('/space/filter', filter);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };

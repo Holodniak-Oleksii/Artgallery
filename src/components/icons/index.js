@@ -3,6 +3,8 @@ export { default as IconArrow } from './IconArrow';
 export { default as Icon3D } from './Icon3D';
 export { default as IconCategory } from './IconCategory';
 export { default as IconClose } from './IconClose';
+export { default as IconSearch } from './IconSearch';
+export { default as IconLogOut } from './IconLogOut';
 
 export { default as IconEmail } from './modals/IconEmail';
 export { default as IconPerson } from './modals/IconPerson';

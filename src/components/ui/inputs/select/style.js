@@ -60,7 +60,6 @@ export const selectStyles = {
     zIndex: 5000,
     borderRadius: '8px',
     zIndex: 1000,
-
     border: ' 1px solid #89a4fd',
     color: '#3b66f1',
   }),
@@ -69,6 +68,7 @@ export const selectStyles = {
     maxHeight: 200,
     fontWeight: 500,
     fontSize: '12px',
+    textTransform: 'capitalize',
     padding: '0',
     zIndex: 1000,
     lineHeight: '16px',
@@ -83,6 +83,8 @@ export const selectStyles = {
     padding: '0',
     fontWeight: 500,
     fontSize: '12px',
+    textTransform: 'capitalize',
+
     lineHeight: '16px',
     color: '#3b66f1',
     caretColor: '#3b66f1',
@@ -96,6 +98,8 @@ export const selectStyles = {
     border: '1px solid transparent',
     transition: 'all 0.3s ease',
     cursor: 'pointer',
+    color: '#3b66f1',
+    textTransform: 'capitalize',
     padding: ' 10px 16px',
     '&:hover': {
       background:
@@ -108,6 +112,7 @@ export const selectStyles = {
     fontSize: '12px',
     lineHeight: '16px',
     color: '#3b66f1',
+    textTransform: 'capitalize',
   }),
   noOptionsMessage: (styles) => ({
     ...styles,
@@ -118,11 +123,13 @@ export const selectStyles = {
     backgroundColor: '#89a4fd',
     borderRadius: '8px',
     padding: '2px 0 2px 2px',
+    textTransform: 'capitalize',
   }),
   multiValueLabel: (styles) => ({
     ...styles,
-    color: '#fff',
+    color: '#ffffff',
     fontSize: '14px',
+    textTransform: 'capitalize',
   }),
   multiValueRemove: (styles) => ({
     ...styles,

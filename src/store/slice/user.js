@@ -8,6 +8,7 @@ const initialState = {
       ? localStorage.getItem(stageName)
       : null,
   isAuth: false,
+  userName: null,
   userID: null,
   isLoading: true,
 };
@@ -19,6 +20,7 @@ const userSlice = createSlice({
     loginUser: (state, action) => {
       localStorage.setItem(stageName, action.payload.token);
       state.token = action.payload?.token || null;
+      state.userName = action.payload?.userName || null;
       state.userID = action.payload?.userID || null;
       state.isAuth = action.payload?.isAuth || false;
       state.isLoading = false;
@@ -26,6 +28,7 @@ const userSlice = createSlice({
     logoutUser: (state) => {
       state.token = null;
       state.userID = null;
+      state.userName = null;
       state.isAuth = false;
       localStorage.removeItem(stageName);
     },

@@ -18,7 +18,7 @@ const CardModel = ({ data }) => {
       <InformationBar>
         <span className="title">{data.title || data.name}</span>
         <Flex>
-          <span className="author">@{data.author}</span>
+          <span className="author">@{data.ownerName}</span>
           <BlueButton
             outline
             onClick={() => route.push(`/details/${data._id}`)}

@@ -4,7 +4,7 @@ const NotFound = () => {
   return (
     <>
       <Meta title="404" />
-      <div>404</div>
+      <h1>404</h1>
     </>
   );
 };

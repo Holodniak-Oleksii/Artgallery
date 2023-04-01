@@ -21,7 +21,10 @@ const ProfilePage = ({ data }) => {
       </Banner>
       <Grid>
         {data.arts.map((item) => (
-          <CardModel data={item} />
+          <CardModel
+            data={item}
+            key={item._id}
+          />
         ))}
       </Grid>
     </Container>

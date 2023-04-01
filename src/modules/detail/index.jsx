@@ -26,7 +26,7 @@ const Details = ({ data }) => {
         </Row>
         <Row>
           {!!categories?.length &&
-            categories.map((item) => <Category>{item}</Category>)}
+            categories.map((item, id) => <Category key={id}>{item}</Category>)}
         </Row>
         <Row>
           <p>{description}</p>
