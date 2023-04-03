@@ -7,6 +7,7 @@ import Layout from '@/layout';
 
 import '@/assets/scss/index.scss';
 import { store } from '@/store';
+import { useEffect } from 'react';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -18,6 +19,15 @@ Router.onRouteChangeError = () => NProgress.done();
 
 const MyApp = ({ Component, pageProps }) => {
   const { route } = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.style.display = 'none';
+      }
+    }
+  }, []);
 
   const renderWithLayout =
     Component.getLayout ||

@@ -4,6 +4,14 @@ import image1 from '@/assets/images/cards/1.jpg';
 import image2 from '@/assets/images/cards/2.webp';
 import image3 from '@/assets/images/cards/3.jpeg';
 import image4 from '@/assets/images/cards/4.jpeg';
+import image5 from '@/assets/images/cards/7.jpg';
+import image6 from '@/assets/images/cards/8.jpeg';
+import image7 from '@/assets/images/cards/9.jpg';
+import image8 from '@/assets/images/cards/10.jpg';
+import image9 from '@/assets/images/cards/11.jpeg';
+import image10 from '@/assets/images/cards/12.jpeg';
+import image11 from '@/assets/images/cards/13.jpg';
+import image12 from '@/assets/images/cards/14.jpg';
 
 import imageCard from '@/assets/images/cards/5.webp';
 import imageNFT from '@/assets/images/cards/6.png';
@@ -79,51 +87,75 @@ export const text = [
 export const cardsNew = [
   {
     id: 0,
-    title: 'Exploration',
+    title: 'Hermes',
     image: image1,
-    author: 'neiborth',
+    ownerName: 'hermes',
   },
   {
     id: 1,
-    title: 'Exploration',
+    title: 'Galaxy',
     image: image2,
-    author: 'neiborth',
+    ownerName: 'galaxy',
   },
   {
     id: 2,
-    title: 'Exploration',
+    title: 'Stoicism',
     image: image3,
-    author: 'neiborth',
+    ownerName: 'stoicist',
   },
   {
     id: 3,
-    title: 'Exploration',
+    title: 'Consciousness',
     image: image4,
-    author: 'neiborth',
+    ownerName: 'means',
   },
   {
     id: 4,
-    title: 'Exploration',
-    image: image1,
-    author: 'neiborth',
+    title: 'Hero',
+    image: image5,
+    ownerName: 'hero_men',
   },
   {
     id: 5,
-    title: 'Exploration',
-    image: image2,
-    author: 'neiborth',
+    title: 'Smile',
+    image: image6,
+    ownerName: 'smile',
   },
   {
     id: 6,
-    title: 'Exploration',
-    image: image3,
-    author: 'neiborth',
+    title: 'Girl',
+    image: image7,
+    ownerName: 'mr_hot',
   },
   {
     id: 7,
-    title: 'Exploration',
-    image: image4,
-    author: 'neiborth',
+    title: 'NARUTO',
+    image: image8,
+    ownerName: 'seske',
+  },
+  {
+    id: 8,
+    title: 'Space ship',
+    image: image9,
+    ownerName: 'lord',
+  },
+  {
+    id: 9,
+    title: 'Police modern weapon',
+    image: image10,
+    ownerName: 'feature',
+  },
+  {
+    id: 10,
+    title: 'Sport',
+    image: image11,
+    ownerName: 'sport',
+  },
+  {
+    id: 11,
+    title: 'Tank',
+    image: image12,
+    ownerName: 'tank',
   },
 ];
 

@@ -1,13 +1,17 @@
+import { IconHome, Icon3D, IconClose } from '@/components/icons';
+
 export const navigations = [
   {
     id: 0,
     name: 'Home',
     path: '/',
+    icon: <IconHome />,
   },
   {
     id: 1,
     name: 'Spaces',
     path: '/spaces',
+    icon: <Icon3D />,
   },
 ];
 

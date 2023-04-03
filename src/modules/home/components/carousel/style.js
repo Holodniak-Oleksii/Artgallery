@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { overflowText } from "@/assets/scss/global";
+import styled, { css } from 'styled-components';
+import { overflowText } from '@/assets/scss/global';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -29,6 +29,30 @@ export const Wrapper = styled.div`
     -ms-flex-align: center;
     align-items: center;
   }
+  @media screen and (max-width: 1440px) {
+    .swiper-wrapper {
+      height: 400px;
+    }
+    .swiper-slide {
+      height: 320px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .swiper-wrapper {
+      height: 360px;
+    }
+    .swiper-slide {
+      height: 260px;
+    }
+  }
+  @media screen and (max-width: 540px) {
+    .swiper-wrapper {
+      height: 300px;
+    }
+    .swiper-slide {
+      height: 230px;
+    }
+  }
 `;
 
 export const Card = styled.div`
@@ -54,6 +78,15 @@ export const Card = styled.div`
           }
         `}
     }
+  }
+  @media screen and (max-width: 1024px) {
+    ${(props) =>
+      props.active &&
+      css`
+        .details {
+          opacity: 1;
+        }
+      `}
   }
 `;
 export const Title = styled.div`
@@ -93,6 +126,18 @@ export const Title = styled.div`
   padding: 20px 16px;
   background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  @media screen and (max-width: 540px) {
+    padding: 8px 6px;
+    .title {
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .blue-btn {
+      margin-top: 6px;
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  }
 `;
 
 export const Explore = styled.h2`

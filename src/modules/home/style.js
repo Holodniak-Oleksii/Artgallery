@@ -1,13 +1,14 @@
-import styled from "styled-components";
+import Image from 'next/image';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
+  position: relative;
   height: 100%;
 `;
 export const List = styled.div`
   display: grid;
   width: 100%;
-
   grid-gap: 8px;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
 `;
@@ -30,5 +31,11 @@ export const MainFlex = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: 100%;
-  gap: 100px;
+  gap: 120px;
+  @media screen and (max-width: 1024px) {
+    gap: 80px;
+  }
+  @media screen and (max-width: 767px) {
+    gap: 40px;
+  }
 `;

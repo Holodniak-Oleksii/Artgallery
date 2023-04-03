@@ -43,14 +43,26 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 600px;
+  position: relative;
+  height: auto;
   ${(props) => props.revert && 'flex-direction: row-reverse;'}
+  @media screen and (max-width: 767px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const Integration = styled.div`
   width: 50%;
   position: relative;
   ${flex_center}
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #13f1fc 0%, #0470dc 100%);
+    border-radius: 12px;
+  }
 `;
 
 export const Content = styled.div`
@@ -60,12 +72,29 @@ export const Content = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    padding: 40px 16px;
+    height: 100%;
+    .title,
+    .paragraph {
+      color: #fff;
+    }
+  }
 `;
 
 export const Picture = styled(Image)`
   height: 450px;
   width: auto;
   border-radius: 14px;
+  @media screen and (max-width: 1024px) {
+    height: 350px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
 `;
 
 export const Drop = styled.div`
@@ -85,7 +114,6 @@ export const Drop = styled.div`
         `}
 
   position: absolute;
-
   background: #54abfb;
   ${(props) =>
     props.small
@@ -149,4 +177,47 @@ export const Drop = styled.div`
             animation: ${animation} 4s infinite both;
           `}
   }
+  @media screen and (max-width: 1024px) {
+    ${(props) =>
+      props.small
+        ? css`
+            top: -30px;
+            right: 0px;
+            height: 80px;
+            width: 80px;
+          `
+        : css`
+            bottom: -30px;
+            left: 0;
+            height: 120px;
+            width: 120px;
+          `}
+          ::after {
+    ${(props) =>
+      props.small
+        ? css`
+            height: 10px;
+            width: 10px;
+            left: 50px;
+            top: 15px;
+          `
+        : css`
+            height: 20px;
+            width: 20px;
+            left: 60px;
+            top: 10px;
+          `}
+  }
+  @media screen and (max-width: 767px) {
+    ${(props) =>
+      props.small
+        ? css`
+            top: -30px;
+            right: -16px;
+          `
+        : css`
+            bottom: -30px;
+            left: -16px;
+          `}
+          
 `;

@@ -45,6 +45,17 @@ const Carousel = ({ items }) => {
         onSlideChange={(swiper) => {
           setActive(swiper.realIndex);
         }}
+        breakpoints={{
+          200: {
+            slidesPerView: 2,
+          },
+          540: {
+            slidesPerView: 3,
+          },
+          767: {
+            slidesPerView: 5,
+          },
+        }}
       >
         {items.map((item, id) => (
           <SwiperSlide key={item.id}>

@@ -1,12 +1,14 @@
 import Meta from '@/components/meta';
+import Page404 from '@/modules/not-found';
 
-const NotFound = () => {
+const NotFoundPage = () => {
   return (
     <>
       <Meta title="404" />
-      <h1>404</h1>
+      {/* <NotFound /> */}
+      <Page404 />
     </>
   );
 };
 
-export default NotFound;
+export default NotFoundPage;

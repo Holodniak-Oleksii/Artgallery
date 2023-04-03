@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
 import { Item, Wrapper, Title } from './style';
 
 const Grid = ({ data }) => {

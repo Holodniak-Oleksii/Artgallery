@@ -14,6 +14,13 @@ import {
   IconInstagram,
   IconYouTube,
 } from '@/components/icons';
+import {
+  LittleMobileOff,
+  MobileOff,
+  MobileOn,
+  TabletOff,
+  TabletOn,
+} from '@/helpers/responsive';
 
 const Footer = () => {
   const color = [
@@ -28,6 +35,14 @@ const Footer = () => {
   ];
   return (
     <Wrapper>
+      <TabletOn>
+        <List>
+          <li>Home</li>
+          <li>Spaces</li>
+          <li>Contact Us</li>
+          <li>About Us</li>
+        </List>
+      </TabletOn>
       <Container>
         <Flex>
           <Contact>
@@ -38,14 +53,50 @@ const Footer = () => {
               />
               ARTGALLERY
             </Logo>
-            <BlueButton white="true">Contact us</BlueButton>
+            <LittleMobileOff>
+              <BlueButton white="true">Contact us</BlueButton>
+            </LittleMobileOff>
           </Contact>
-          <List>
-            <li>Home</li>
-            <li>Spaces</li>
-            <li>Contact Us</li>
-            <li>About Us</li>
-          </List>
+          <MobileOn>
+            <Address>
+              <a href="tel:380921822123">+380921822123</a>
+              <a href="mailto:support@gmail.com">support@gmail.com</a>
+              <span>Los Angeles 232424 USA</span>
+            </Address>
+          </MobileOn>
+          <TabletOff>
+            <List>
+              <li>Home</li>
+              <li>Spaces</li>
+              <li>Contact Us</li>
+              <li>About Us</li>
+            </List>
+          </TabletOff>
+          <MobileOff>
+            <List>
+              <li>
+                <IconInstagram />
+              </li>
+              <li>
+                <IconTwitter />
+              </li>
+              <li>
+                <IconPinterest />
+              </li>
+              <li>
+                <IconYouTube />
+              </li>
+            </List>
+            <Drop className="drop">
+              <Address>
+                <a href="tel:380921822123">+380921822123</a>
+                <a href="mailto:support@gmail.com">support@gmail.com</a>
+                <span>Los Angeles 232424 USA</span>
+              </Address>
+            </Drop>
+          </MobileOff>
+        </Flex>
+        <MobileOn>
           <List>
             <li>
               <IconInstagram />
@@ -60,14 +111,7 @@ const Footer = () => {
               <IconYouTube />
             </li>
           </List>
-          <Drop className="drop">
-            <Address>
-              <a href="tel:380921822123">+380921822123</a>
-              <a href="mailto:support@gmail.com">support@gmail.com</a>
-              <span>Los Angeles 232424 USA</span>
-            </Address>
-          </Drop>
-        </Flex>
+        </MobileOn>
       </Container>
       {color.map((item, i) => (
         <Wave

@@ -12,9 +12,11 @@ export const getStaticProps = async () => {
   };
 };
 
-export default (props) => (
-  <>
-    <Meta title="SPACES" />
-    <Spaces data={props.all} />
-  </>
-);
+export default (props) => {
+  return (
+    <>
+      <Meta title="SPACES" />
+      <Spaces data={props.all} />
+    </>
+  );
+};

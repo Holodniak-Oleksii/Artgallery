@@ -5,6 +5,7 @@ export { default as IconCategory } from './IconCategory';
 export { default as IconClose } from './IconClose';
 export { default as IconSearch } from './IconSearch';
 export { default as IconLogOut } from './IconLogOut';
+export { default as IconBurger } from './IconBurger';
 
 export { default as IconEmail } from './modals/IconEmail';
 export { default as IconPerson } from './modals/IconPerson';
@@ -20,3 +21,5 @@ export { default as IconInstagram } from './social/IconInstagram';
 export { default as IconPinterest } from './social/IconPinterest';
 export { default as IconYouTube } from './social/IconYouTube';
 export { default as IconTwitter } from './social/IconTwitter';
+
+export { default as IconHome } from './navigations/IconHome';

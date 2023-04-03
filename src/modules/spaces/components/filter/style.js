@@ -8,6 +8,12 @@ export const Container = styled.div`
   .filter {
     max-width: 240px;
   }
+  @media screen and (max-width: 540px) {
+    flex-direction: column;
+    .filter {
+      max-width: 100%;
+    }
+  }
 `;
 
 export const Wrapper = styled.div`

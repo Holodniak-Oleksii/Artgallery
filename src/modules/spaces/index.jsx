@@ -6,7 +6,7 @@ import Filter from './components/filter';
 
 import { SpacesService } from '@/services/spaces';
 
-import { Grid } from './style';
+import { Grid, NoFound } from './style';
 
 const Spaces = ({ data }) => {
   const [filter, setFilter] = useState({ query: '', category: '' });
@@ -26,14 +26,18 @@ const Spaces = ({ data }) => {
         setFilter={setFilter}
         filter={filter}
       />
-      <Grid>
-        {models?.map((item) => (
-          <CardModel
-            key={item._id}
-            data={item}
-          />
-        ))}
-      </Grid>
+      {!!models ? (
+        <Grid>
+          {models?.map((item) => (
+            <CardModel
+              key={item._id}
+              data={item}
+            />
+          ))}
+        </Grid>
+      ) : (
+        <NoFound>Nothing was found for this query</NoFound>
+      )}
     </Container>
   );
 };

@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, calc(25% - 12px));
   gap: 16px;
+  @media screen and (max-width: 767px) {
+    gap: 6px;
+    grid-template-columns: repeat(2, calc(50% - 4px));
+  }
 `;
 
 export const Title = styled.h3`
@@ -19,6 +23,14 @@ export const Title = styled.h3`
   font-size: 24px;
   transition: all 0.4s ease;
   backdrop-filter: blur(10px);
+  @media screen and (max-width: 1024px) {
+    font-size: 20px;
+    padding: 12px 16px;
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
 `;
 
 export const Item = styled.div`
@@ -44,6 +56,11 @@ export const Item = styled.div`
       .title {
         opacity: 1;
       }
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .title {
+      opacity: 1;
     }
   }
 `;

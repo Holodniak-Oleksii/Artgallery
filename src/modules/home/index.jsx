@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react';
 
 import Container from '@/components/containers';
-import { MainFlex, Wrapper } from './style';
+import { Background, MainFlex, Wrapper } from './style';
 import SwiperCards from './components/slider';
-import { cardsNew, ThreeDExample, text, categories } from './data';
 import TheBestGallery from './components/the-best';
 import Carousel from './components/carousel';
 import Banner from './components/banner';
 import Grid from './components/grid';
+import { MobileOff, MobileOn } from '@/helpers/responsive';
+
+import { cardsNew, ThreeDExample, text, categories } from './data';
 
 const Home = () => {
   return (
     <Wrapper>
+      <MobileOn>
+        <Banner />
+      </MobileOn>
       <Container>
         <MainFlex>
-          <Banner />
+          <MobileOff>
+            <Banner />
+          </MobileOff>
           <SwiperCards items={cardsNew} />
           <TheBestGallery
             image={text[0].image}

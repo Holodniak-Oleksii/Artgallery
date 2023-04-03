@@ -7,7 +7,6 @@ import { CardModel } from '@/components/ui';
 import { Grid } from './../spaces/style';
 
 const ProfilePage = ({ data }) => {
-  console.log('🚀 ~ file: index.jsx:8 ~ ProfilePage ~ data:', data);
   return (
     <Container>
       <Banner>

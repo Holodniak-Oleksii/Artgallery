@@ -58,12 +58,17 @@ const Create = () => {
   };
 
   const handlerChange = (e) => {
-    if (e.target.files[0]) {
-      setFile({
-        url: URL.createObjectURL(e.target.files[0]),
-        file: e.target.files[0],
-        send: true,
-      });
+    let ext = e.target.value.match(/\.([^\.]+)$/)[1];
+    if (ext === 'glb') {
+      if (e.target.files[0]) {
+        setFile({
+          url: URL.createObjectURL(e.target.files[0]),
+          file: e.target.files[0],
+          send: true,
+        });
+      }
+    } else {
+      alert('This file format is not supported');
     }
   };
 
@@ -124,7 +129,7 @@ const Create = () => {
                     <h5>Choose file</h5>
                     <div>
                       <BlueButton>.glb</BlueButton>
-                      <BlueButton>.fbx</BlueButton>
+                      {/* <BlueButton>.fbx</BlueButton> */}
                     </div>
                   </Choose>
                 )}
@@ -156,6 +161,7 @@ const Create = () => {
               <input
                 id="file"
                 type="file"
+                accept=".glb"
                 {...register('file3D', {
                   onChange: handlerChange,
                 })}

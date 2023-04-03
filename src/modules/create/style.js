@@ -16,6 +16,10 @@ export const OBJContainer = styled.div`
       : `border: 1px solid #992d2d;
       background-color: #ff26260e;
       `}
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+
+  }
 `;
 
 export const Center = styled.div`
@@ -62,6 +66,10 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 16px;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    height: 700px;
+  }
 `;
 export const Image = styled.img`
   width: 100%;

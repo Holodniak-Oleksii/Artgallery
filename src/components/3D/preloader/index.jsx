@@ -11,7 +11,8 @@ import {
 import { Vector3 } from 'three';
 import { LoadGLTF } from '../load';
 import { imageContext } from '../../../modules/create';
-import ErrorBoundary from '@/helpers/errorBoundary';
+import Loading from '../loading';
+import ErrorBoundary from '@/helpers/ErrorBoundary';
 
 const Preloader3D = ({ url, format }) => {
   switch (format) {
@@ -66,7 +67,7 @@ const Scene = ({ url }) => {
           intensity={0.4}
           castShadow
         />
-        <Suspense fallback={<Html center>Loading...</Html>}>
+        <Suspense fallback={<Loading />}>
           <Bounds
             fit
             clip

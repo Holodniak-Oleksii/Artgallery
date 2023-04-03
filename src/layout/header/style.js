@@ -13,6 +13,9 @@ export const Wrapper = styled.header`
   z-index: 10;
   background-color: #fff;
   box-shadow: 0 0 8px rgba(207, 206, 206, 0.811);
+  @media screen and (max-width: 767px) {
+    height: 64px;
+  }
 `;
 
 export const Logo = styled(Link)`
@@ -71,4 +74,65 @@ export const AccountBtn = styled(CloseBtn)`
   position: static;
   aspect-ratio: 1 / 1;
   padding: 8px;
+`;
+export const BurgerContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .header {
+    height: 64px;
+  }
+`;
+export const BurgerWrapper = styled.div`
+  width: 100%;
+  max-width: 540px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  transition: all 0.5s ease;
+  transform: translateX(-110%);
+  ${(props) => props.open && `transform: translateX(0%);`}
+`;
+
+export const List = styled.div`
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+  height: calc(100% - 80px);
+  .item {
+    font-size: 18px;
+    line-height: 26px;
+    padding: 22px 16px;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(
+        90deg,
+        rgba(55, 62, 255, 0.2) 0%,
+        rgba(55, 62, 255, 0.5) 25%,
+        rgba(55, 62, 255, 1) 50%,
+        rgba(55, 62, 255, 0.5) 75%,
+        rgba(55, 62, 255, 0.2) 100%
+      )
+      1;
+    width: 100%;
+    max-width: 240px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const Navigation = styled.div`
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  flex: 1 1 auto;
 `;

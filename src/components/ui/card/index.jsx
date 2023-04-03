@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 const CardModel = ({ data }) => {
   const route = useRouter();
   return (
-    <Wrapper>
+    <Wrapper className="card">
       <Image
         src={data.image || data.pathImage}
         alt="model"
@@ -21,7 +21,11 @@ const CardModel = ({ data }) => {
           <span className="author">@{data.ownerName}</span>
           <BlueButton
             outline
-            onClick={() => route.push(`/details/${data._id}`)}
+            onClick={() => {
+              if (data._id) {
+                route.push(`/details/${data._id}`);
+              } else route.push(`/spaces`);
+            }}
           >
             View
           </BlueButton>

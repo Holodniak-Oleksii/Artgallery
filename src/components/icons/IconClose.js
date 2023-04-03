@@ -1,7 +1,8 @@
-const Icon = ({ size = 14, box = 14, fill = '#2081E2', large }) => (
+const Icon = ({ size = 14, box = 14, fill = '#2081E2', large, revert }) => (
   <>
     {large ? (
       <svg
+        style={revert && { transform: 'rotate(45deg)' }}
         width="28"
         height="28"
         viewBox="0 0 28 28"

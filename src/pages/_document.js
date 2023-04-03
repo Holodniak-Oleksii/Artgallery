@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import loader from '@/components/loader/style';
 
 export default class extends Document {
   static async getInitialProps(ctx) {
@@ -38,8 +39,15 @@ export default class extends Document {
 
     return (
       <Html lang="en">
-        <Head>{styles}</Head>
+        <Head>
+          {styles}
+          <style>{loader}</style>
+        </Head>
+
         <body>
+          <div id={'loader'}>
+            <div className="spinner" />
+          </div>
           <Main />
           <NextScript />
         </body>

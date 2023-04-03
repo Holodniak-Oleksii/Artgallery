@@ -1,17 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import {
-  OrbitControls,
-  Html,
-  Center,
-  Bounds,
-  useProgress,
-} from '@react-three/drei';
+import { OrbitControls, Center, Bounds } from '@react-three/drei';
 import { LoadGLTF } from '../load';
+import Loading from '../loading';
 
-const Scene = ({ url }) => {
-  const { progress } = useProgress();
+const Scene = ({ url, setProgress }) => {
   return (
     <Canvas shadows>
       <OrbitControls makeDefault />
@@ -20,13 +14,7 @@ const Scene = ({ url }) => {
         intensity={0.4}
         castShadow
       />
-      <Suspense
-        fallback={
-          <Html center>
-            <p>{progress.toFixed(1) + '%'} </p>
-          </Html>
-        }
-      >
+      <Suspense fallback={<Loading setProgress={setProgress} />}>
         <Bounds
           fit
           clip
