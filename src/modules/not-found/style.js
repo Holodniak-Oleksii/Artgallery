@@ -11,9 +11,10 @@ export const Text = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   gap: 16px;
+  text-align: center;
   h1 {
     font-size: 42px;
     font-weight: 700;

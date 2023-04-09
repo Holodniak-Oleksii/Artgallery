@@ -52,7 +52,7 @@ export const Preview = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 4;
+  z-index: 1;
   background: #000000c0;
   ${flex_center}
 `;

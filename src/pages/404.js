@@ -5,7 +5,6 @@ const NotFoundPage = () => {
   return (
     <>
       <Meta title="404" />
-      {/* <NotFound /> */}
       <Page404 />
     </>
   );

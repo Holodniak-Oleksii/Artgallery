@@ -1,14 +1,15 @@
 import { Html, useProgress } from '@react-three/drei';
-import { set } from 'nprogress';
 import { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
   position: relative;
+  z-index: 6;
   span {
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 7;
     transform: translate(-50%, -50%);
     color: #ffffff;
     font-size: 10px;
