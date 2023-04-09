@@ -123,6 +123,8 @@ const Meta = ({
         property="og:image:secure_url"
         content="https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg"
       />
+
+      <meta content="https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg" />
       <meta
         property="og:image:type"
         content="image/svg"
