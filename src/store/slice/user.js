@@ -4,7 +4,11 @@ import { getCookie, setCookie, deleteCookie } from 'cookies-next';
 const cookieName = 'ART_GALLERY_ACCESS_TOKEN';
 
 const initialState = {
-  token: getCookie(cookieName, {}),
+  token:
+    getCookie(cookieName, {}) ||
+    (typeof window !== 'undefined' && localStorage.getItem(cookieName))
+      ? localStorage.getItem(cookieName)
+      : null,
   userName: null,
   userID: null,
 };
@@ -14,6 +18,9 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     loginUser: (state, action) => {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(cookieName, action.payload?.token);
+      }
       setCookie(cookieName, action.payload?.token, {
         maxAge: 25200,
       });
@@ -26,6 +33,7 @@ const userSlice = createSlice({
       state.userID = null;
       state.userName = null;
       deleteCookie(cookieName);
+      localStorage.removeItem(cookieName);
     },
   },
 });

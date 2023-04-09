@@ -22,7 +22,9 @@ Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
 const MyApp = ({ Component, pageProps, userData }) => {
-  loginUserAction(userData);
+  if (userData?.token) {
+    loginUserAction(userData);
+  }
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -31,6 +33,19 @@ const MyApp = ({ Component, pageProps, userData }) => {
         loader.style.display = 'none';
       }
     }
+  }, []);
+
+  useEffect(() => {
+    const load = async () => {
+      if (!userData?.token) {
+        const user = await AuthService.checkToken(
+          localStorage.getItem('ART_GALLERY_ACCESS_TOKEN')
+        );
+        console.log('🚀 ~ file: _app.js:43 ~ load ~ userData:', user);
+        loginUserAction(user);
+      }
+    };
+    load();
   }, []);
 
   return (
