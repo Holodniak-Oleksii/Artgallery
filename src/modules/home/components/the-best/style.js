@@ -209,15 +209,7 @@ export const Drop = styled.div`
           `}
   }
   @media screen and (max-width: 767px) {
-    ${(props) =>
-      props.small
-        ? css`
-            top: -30px;
-            right: -16px;
-          `
-        : css`
-            bottom: -30px;
-            left: -16px;
-          `}
+  display: none;
+  }
           
 `;
