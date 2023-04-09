@@ -26,7 +26,10 @@ const Loading = ({ setProgress }) => {
   }, [active]);
 
   return (
-    <Html center>
+    <Html
+      center
+      zIndexRange={9}
+    >
       <Container>
         <span>{progress.toFixed(0)}</span> <div className={'spinner'} />
       </Container>

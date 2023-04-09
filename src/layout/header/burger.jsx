@@ -1,3 +1,12 @@
+import { useModal } from '@ebay/nice-modal-react';
+import { useRouter } from 'next/router';
+
+import { useUser } from '@/store/selectors';
+import { IconClose, IconLogo, IconPerson } from '@/components/icons';
+import { BlueButton } from '@/components/ui';
+import { MODALS } from '@/components/modals/register';
+import { logoutUserAction } from '@/store/actions/user';
+
 import { CloseBtn } from '@/components/style';
 import {
   BurgerContainer,
@@ -9,18 +18,14 @@ import {
   Navigation,
   Group,
 } from './style';
-import { IconClose, IconLogo, IconPerson } from '@/components/icons';
+
 import { navigations } from '../data';
-import { useRouter } from 'next/router';
-import { BlueButton } from '@/components/ui';
-import { MODALS } from '@/components/modals/register';
-import { useModal } from '@ebay/nice-modal-react';
-import { logoutUserAction } from '@/store/actions/user';
 
 const Menu = ({ open, close, isAuth }) => {
   const { pathname, push } = useRouter();
   const { show: showLogin } = useModal(MODALS.LOGIN);
   const { show: showRegistration } = useModal(MODALS.REGISTRATION);
+  const { userID } = useUser();
 
   return (
     <BurgerWrapper open={open}>
@@ -67,8 +72,8 @@ const Menu = ({ open, close, isAuth }) => {
                 <Item
                   onClick={close}
                   className="item"
-                  active={pathname === '/profile'}
-                  href={'/profile'}
+                  active={pathname.includes('/profile')}
+                  href={`/profile/${userID}`}
                 >
                   <IconPerson size={26} />
                   Profile
