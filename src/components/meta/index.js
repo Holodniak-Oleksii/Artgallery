@@ -59,7 +59,9 @@ const Meta = ({
 
       <meta
         name="twitter:card"
-        content={'favicon.svg'}
+        content={
+          'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg'
+        }
       />
       <meta
         name="twitter:title"
@@ -72,19 +74,29 @@ const Meta = ({
 
       <meta
         name="twitter:image"
-        content={'favicon.svg'}
+        content={
+          'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg'
+        }
       />
 
       <meta content={title} />
       <meta content={description} />
-      <meta content={'favicon.svg'} />
+      <meta
+        content={
+          'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg'
+        }
+      />
 
       <link
         rel="icon"
         type="image/svg"
-        href={'favicon.svg'}
+        href={
+          'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg'
+        }
         sizes="32x32"
-        data-mce-href={'favicon.svg'}
+        data-mce-href={
+          'https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg'
+        }
       />
 
       <meta
@@ -105,14 +117,12 @@ const Meta = ({
       />
       <meta
         property="og:image"
-        content="favicon.svg"
+        content="https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg"
       />
       <meta
         property="og:image:secure_url"
-        content="favicon.svg"
+        content="https://artgallery-bucket.s3.eu-central-1.amazonaws.com/logo/favicon.svg"
       />
-
-      <meta content="favicon.svg" />
       <meta
         property="og:image:type"
         content="image/svg"
