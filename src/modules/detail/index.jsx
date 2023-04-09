@@ -15,7 +15,7 @@ const Details = ({ data }) => {
 
   return (
     <Wrapper>
-      <Obj>
+      {/* <Obj>
         {show ? (
           <Preview>
             {progress && (
@@ -39,7 +39,7 @@ const Details = ({ data }) => {
           url={path3D}
           setProgress={setProgress}
         />
-      </Obj>
+      </Obj> */}
       <Container>
         <Row between>
           <h2 className="title">{name}</h2>
