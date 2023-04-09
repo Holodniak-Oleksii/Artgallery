@@ -10,7 +10,7 @@ export const navigations = [
   {
     id: 1,
     name: 'Spaces',
-    path: '/spaces',
+    path: '/spaces?category=all&search=',
     icon: <Icon3D />,
   },
 ];

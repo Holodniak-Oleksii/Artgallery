@@ -17,7 +17,7 @@ const SwiperCards = ({ items }) => {
         <h2 className="head-title">New Models</h2>
         <BlueButton
           transparent
-          onClick={() => push('/spaces')}
+          onClick={() => push('/spaces?category=all&search=')}
         >
           View All
         </BlueButton>

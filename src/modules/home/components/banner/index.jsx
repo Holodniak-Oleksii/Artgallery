@@ -19,7 +19,7 @@ const Banner = () => {
 
   const handlerClickMore = () => {
     if (userID) {
-      push('/spaces');
+      push('/spaces?category=all&search=');
     } else {
       show();
     }

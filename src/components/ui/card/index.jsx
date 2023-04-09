@@ -24,7 +24,7 @@ const CardModel = ({ data }) => {
             onClick={() => {
               if (data._id) {
                 route.push(`/details/${data._id}`);
-              } else route.push(`/spaces`);
+              } else route.push(`/spaces?category=all&search=`);
             }}
           >
             View

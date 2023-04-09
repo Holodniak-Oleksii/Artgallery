@@ -12,9 +12,12 @@ import { Wrapper, Card, Title, Explore } from './style';
 // import required modules
 import { BlueButton } from '@/components/ui';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const Carousel = ({ items }) => {
   const [active, setActive] = useState(null);
+  const { push } = useRouter();
+
   return (
     <Wrapper>
       <Explore className=" subtitle">
@@ -70,7 +73,11 @@ const Carousel = ({ items }) => {
               <Title className="details">
                 <span className="title">User Userovish</span>
                 <span className="user">@bagdekw</span>
-                <BlueButton>View All</BlueButton>
+                <BlueButton
+                  onClick={() => push(`/spaces?category=all&search=`)}
+                >
+                  View All
+                </BlueButton>
               </Title>
             </Card>
           </SwiperSlide>
