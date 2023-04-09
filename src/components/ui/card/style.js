@@ -1,4 +1,4 @@
-import { overflowText } from '@/assets/scss/global';
+import { overflowText } from '@/assets/global';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  box-shadow: 8px 8px 6px #f0efef, -8px -8px 6px #ffffff;
+  box-shadow: 6px 6px 4px #f0efef, -6px -6px 4px #ffffff;
   .image {
     width: 100%;
     height: 100%;

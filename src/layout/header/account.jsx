@@ -20,7 +20,12 @@ const Account = () => {
       <AccountBtn onClick={() => push(`/profile/${userID}`)}>
         <IconPerson size={24} />
       </AccountBtn>
-      <AccountBtn onClick={logoutUserAction}>
+      <AccountBtn
+        onClick={() => {
+          logoutUserAction();
+          push('/');
+        }}
+      >
         <IconLogOut size={24} />
       </AccountBtn>
     </Group>

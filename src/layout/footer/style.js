@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styled, { keyframes } from 'styled-components';
-import { flex_center } from '@/assets/scss/global';
+import { flex_center } from '@/assets/global';
 
 export const Wrapper = styled.footer`
   padding: 30px 0;

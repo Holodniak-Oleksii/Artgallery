@@ -1,7 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import loader from '@/components/loader/style';
-
 export default class extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();

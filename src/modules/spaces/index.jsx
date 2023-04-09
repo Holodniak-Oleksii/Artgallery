@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import Container from '@/components/containers';
 import { CardModel } from '@/components/ui';
 import Filter from './components/filter';
-
-import { SpacesService } from '@/services/spaces';
+import useDebounce from '@/helpers/useDebounce';
 
 import { Grid, NoFound } from './style';
 
-const Spaces = ({ data }) => {
-  const [filter, setFilter] = useState({ query: '', category: '' });
-  const [models, setModels] = useState(data);
+const Spaces = ({ data, categoryData, searchData }) => {
+  const [category, setCategory] = useState(categoryData);
+  const [search, setSearch] = useState(searchData);
+  const { push } = useRouter();
+
+  const debouncedSearch = useDebounce(search, 800);
 
   useEffect(() => {
-    const handlerFilter = async () => {
-      const data = await SpacesService.filterSpace(filter);
-      setModels(data);
-    };
-    handlerFilter();
-  }, [filter.query, filter.category]);
+    push(`/spaces?category=${category}&search=${search}`);
+  }, [debouncedSearch]);
+
+  useEffect(() => {
+    push(`/spaces?category=${category}&search=${search}`);
+  }, [category]);
 
   return (
     <Container>
-      <Filter
-        setFilter={setFilter}
-        filter={filter}
-      />
-      {!!models ? (
+      <Filter data={{ setCategory, category, setSearch, search }} />
+      {!!data.length ? (
         <Grid>
-          {models?.map((item) => (
+          {data?.map((item) => (
             <CardModel
               key={item._id}
               data={item}

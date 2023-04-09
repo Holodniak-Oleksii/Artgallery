@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { flex_center } from '@/assets/scss/global';
+import { flex_center } from '@/assets/global';
 
 const Button = styled.button`
   ${flex_center}

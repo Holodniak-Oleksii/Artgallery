@@ -1,16 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getCookie, setCookie, deleteCookie } from 'cookies-next';
 
-const stageName = 'ART_GALLERY_ACCESS_TOKEN';
+const cookieName = 'ART_GALLERY_ACCESS_TOKEN';
 
 const initialState = {
-  token:
-    typeof window !== 'undefined' && localStorage.getItem(stageName)
-      ? localStorage.getItem(stageName)
-      : null,
-  isAuth: false,
+  token: getCookie(cookieName, {}),
   userName: null,
   userID: null,
-  isLoading: true,
 };
 
 const userSlice = createSlice({
@@ -18,19 +14,18 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     loginUser: (state, action) => {
-      localStorage.setItem(stageName, action.payload.token);
+      setCookie(cookieName, action.payload?.token, {
+        maxAge: 25200,
+      });
       state.token = action.payload?.token || null;
       state.userName = action.payload?.userName || null;
       state.userID = action.payload?.userID || null;
-      state.isAuth = action.payload?.isAuth || false;
-      state.isLoading = false;
     },
     logoutUser: (state) => {
       state.token = null;
       state.userID = null;
       state.userName = null;
-      state.isAuth = false;
-      localStorage.removeItem(stageName);
+      deleteCookie(cookieName);
     },
   },
 });

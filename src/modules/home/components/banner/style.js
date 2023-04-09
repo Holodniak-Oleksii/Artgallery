@@ -49,6 +49,7 @@ export const Content = styled.div`
     text-align: center;
     position: relative;
     z-index: 2;
+    padding-top: 0px;
 
     .blue-btn {
       margin: auto;
@@ -76,8 +77,15 @@ export const Background = styled(Image)`
   position: absolute;
   z-index: -1;
   object-fit: cover;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  width: calc(100% + 64px);
+  height: calc(100% + 32px);
+  top: -32px;
+  left: -32px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  @media screen and (max-width: 540px) {
+    width: calc(100% + 32px);
+    left: -16px;
+  }
 `;

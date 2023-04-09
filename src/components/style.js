@@ -1,4 +1,4 @@
-import { flex_center, overflowText } from '@/assets/scss/global';
+import { flex_center, overflowText } from '@/assets/global';
 import styled from 'styled-components';
 
 export const Error = styled.span`

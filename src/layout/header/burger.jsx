@@ -15,9 +15,10 @@ import { useRouter } from 'next/router';
 import { BlueButton } from '@/components/ui';
 import { MODALS } from '@/components/modals/register';
 import { useModal } from '@ebay/nice-modal-react';
+import { logoutUserAction } from '@/store/actions/user';
 
 const Menu = ({ open, close, isAuth }) => {
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
   const { show: showLogin } = useModal(MODALS.LOGIN);
   const { show: showRegistration } = useModal(MODALS.REGISTRATION);
 
@@ -77,7 +78,15 @@ const Menu = ({ open, close, isAuth }) => {
           </Navigation>
           <Group>
             {isAuth ? (
-              <BlueButton className="log-out">Log Out</BlueButton>
+              <BlueButton
+                className="log-out"
+                onClick={() => {
+                  logoutUserAction();
+                  push('/');
+                }}
+              >
+                Log Out
+              </BlueButton>
             ) : (
               <>
                 <BlueButton

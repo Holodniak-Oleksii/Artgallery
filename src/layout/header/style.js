@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 
-import { flex_center } from '@/assets/scss/global';
+import { flex_center } from '@/assets/global';
 import { CloseBtn } from '@/components/style';
 
 export const Wrapper = styled.header`

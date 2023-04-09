@@ -138,7 +138,7 @@ const Create = () => {
                 {image.image ? (
                   <Image
                     src={image.image}
-                    alt=""
+                    alt="Photo Image"
                   />
                 ) : (
                   <Choose>
@@ -193,7 +193,7 @@ const Create = () => {
                 icon={<IconCategory />}
                 name="categories"
                 title="Categories"
-                options={categories}
+                options={categories.slice(1)}
                 placeholder="Categories"
                 rules={{ required: true }}
               />

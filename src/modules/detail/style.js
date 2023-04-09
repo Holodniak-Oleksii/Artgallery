@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { flex_center, overflowText } from '@/assets/scss/global';
+import { flex_center, overflowText } from '@/assets/global';
 
 export const Wrapper = styled.div`
   display: flex;

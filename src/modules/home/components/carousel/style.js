@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { overflowText } from '@/assets/scss/global';
+import { overflowText } from '@/assets/global';
 
 export const Wrapper = styled.div`
   width: 100%;

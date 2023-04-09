@@ -22,13 +22,15 @@ const LoginModal = create(({ id }) => {
       loginUserAction({
         token: user?.token,
         userID: user?.userId,
-        isAuth: user?.isAuth,
+        userName: user?.userName,
       });
-      if (user?.isAuth) {
+      if (user?.token) {
         hide();
         reset();
       }
     } catch (e) {
+      console.error(e);
+
       const { filed, message } = e.response.data;
       setError(filed, { type: 'custom', message });
     }

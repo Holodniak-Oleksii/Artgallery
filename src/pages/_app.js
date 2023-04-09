@@ -1,13 +1,17 @@
+import { useEffect } from 'react';
 import NProgress from 'nprogress';
-import Router, { useRouter } from 'next/router';
+import Router from 'next/router';
 import { Provider } from 'react-redux';
+import { getCookies } from 'cookies-next';
+import App from 'next/app';
 
 import '@/components/modals/register';
 import Layout from '@/layout';
 
-import '@/assets/scss/index.scss';
+import '../../styles/index.scss';
 import { store } from '@/store';
-import { useEffect } from 'react';
+import { AuthService } from '@/services/user';
+import { loginUserAction } from '@/store/actions/user';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -17,8 +21,8 @@ Router.onRouteChangeComplete = () => NProgress.done();
 
 Router.onRouteChangeError = () => NProgress.done();
 
-const MyApp = ({ Component, pageProps }) => {
-  const { route } = useRouter();
+const MyApp = ({ Component, pageProps, userData }) => {
+  loginUserAction(userData);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -29,21 +33,24 @@ const MyApp = ({ Component, pageProps }) => {
     }
   }, []);
 
-  const renderWithLayout =
-    Component.getLayout ||
-    function (page) {
-      return (
-        <Provider store={store}>
-          <Layout>{page}</Layout>
-        </Provider>
-      );
-    };
-
-  return renderWithLayout(
-    <Component
-      {...pageProps}
-      key={route}
-    />
+  return (
+    <Provider store={store}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
 };
+
+MyApp.getInitialProps = async (appContext) => {
+  const { res, req } = appContext.ctx;
+  const cookieAuth = getCookies({ req, res });
+  const userData = await AuthService.checkToken(
+    cookieAuth.ART_GALLERY_ACCESS_TOKEN
+  );
+  const appProps = await App.getInitialProps(appContext);
+
+  return { ...appProps, userData };
+};
+
 export default MyApp;

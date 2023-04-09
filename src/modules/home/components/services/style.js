@@ -1,12 +1,12 @@
-import styled, { css, keyframes } from "styled-components";
-import { flex_center } from "@/assets/scss/global";
+import styled, { css, keyframes } from 'styled-components';
+import { flex_center } from '@/assets/global';
 
 const drop = (lastData, currentData) => keyframes`
     0%{
-        left: ${lastData + "px"} ;
+        left: ${lastData + 'px'} ;
     }
     100%{
-        left: ${currentData + "px"} ;
+        left: ${currentData + 'px'} ;
     }
 `;
 

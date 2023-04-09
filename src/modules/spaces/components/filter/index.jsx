@@ -9,16 +9,12 @@ import { Wrapper, Container } from './style';
 
 import { categories } from '../../../create/data';
 
-const options = [
-  {
-    value: 'All',
-    label: 'All Categories',
-  },
-].concat(categories);
+const Filter = ({ data }) => {
+  const { setCategory, category, setSearch, search } = data;
 
-const Filter = ({ setFilter, filter }) => {
   const handlerClear = () => {
-    setFilter({ query: '', category: '' });
+    setCategory('all');
+    setSearch('');
   };
 
   return (
@@ -29,9 +25,9 @@ const Filter = ({ setFilter, filter }) => {
         </Icon>
         <input
           className="field"
-          value={filter.query}
+          value={search}
           onChange={(e) => {
-            setFilter({ ...filter, query: e.target.value });
+            setSearch(e.target.value);
           }}
         />
         <Icon onClick={handlerClear}>
@@ -44,10 +40,10 @@ const Filter = ({ setFilter, filter }) => {
         </Icon>
         <Select
           placeholder={'Category'}
-          options={options}
-          defaultValue={options[0]}
+          options={categories}
+          defaultValue={categories.filter((item) => item.value === category)[0]}
           onChange={({ value }) => {
-            setFilter({ ...filter, category: value });
+            setCategory(value);
           }}
           styles={selectStyles}
         />

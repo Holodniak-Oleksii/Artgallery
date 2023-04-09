@@ -6,9 +6,6 @@ import { Autoplay } from 'swiper';
 import { CardModel } from '@/components/ui';
 import { BlueButton } from '@/components/ui';
 
-import 'swiper/css';
-import 'swiper/scss/autoplay';
-
 import { Wrapper, Head } from './style';
 
 const SwiperCards = ({ items }) => {

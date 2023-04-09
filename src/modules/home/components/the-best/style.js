@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { flex_center } from '@/assets/scss/global';
+import { flex_center } from '@/assets/global';
 import Image from 'next/image';
 
 const animationSmall = keyframes`

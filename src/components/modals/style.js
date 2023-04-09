@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { flex_center } from '@/assets/scss/global';
+import { flex_center } from '@/assets/global';
 
 export const Wrapper = styled.div`
   width: 100%;

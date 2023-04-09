@@ -1,4 +1,4 @@
-import { overflowText } from '@/assets/scss/global';
+import { overflowText } from '@/assets/global';
 import Image from 'next/image';
 import styled from 'styled-components';
 

@@ -1,4 +1,4 @@
-import withAuth from '@/helpers/withAuth';
+import Meta from '@/components/meta';
 import ProfilePage from '@/modules/profile';
 import { AuthService } from '@/services/user';
 
@@ -25,7 +25,12 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Profile = (props) => {
-  return <ProfilePage data={props.details} />;
+  return (
+    <>
+      <Meta title={props.details.username} />
+      <ProfilePage data={props.details} />
+    </>
+  );
 };
 
-export default withAuth(Profile);
+export default Profile;

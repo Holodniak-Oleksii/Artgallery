@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { flex_center } from '@/assets/scss/global';
+import { flex_center } from '@/assets/global';
 
 export const OBJContainer = styled.div`
   width: 50%;
@@ -18,7 +18,6 @@ export const OBJContainer = styled.div`
       `}
   @media screen and (max-width: 1024px) {
     width: 100%;
-
   }
 `;
 
