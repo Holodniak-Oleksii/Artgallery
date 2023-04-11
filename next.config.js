@@ -14,6 +14,11 @@ const nextConfig = {
     DAY_REVALIDATE: process.env.DAY_REVALIDATE,
     NOT_FOUND_URL: process.env.NOT_FOUND_URL,
   },
+  api: {
+    bodyParser: {
+      sizeLimit: '50mb',
+    },
+  },
   images: {
     remotePatterns: [
       {
