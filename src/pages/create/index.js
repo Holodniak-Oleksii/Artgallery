@@ -5,11 +5,7 @@ import Router from 'next/router';
 
 export const getServerSideProps = ({ req, res }) => {
   const cookieAuth = getCookies({ req, res });
-
-  if (!cookieAuth.ART_GALLERY_ACCESS_TOKEN && !req) {
-    Router.replace('/');
-    return { props: { cookie: {} } };
-  }
+  console.log('🚀 ~ file: index.js:8 ~ getServerSideProps ~ res:', res);
 
   if (!cookieAuth.ART_GALLERY_ACCESS_TOKEN && req) {
     res.writeHead(302, {
@@ -18,6 +14,12 @@ export const getServerSideProps = ({ req, res }) => {
     res.end();
     return { props: { cookie: {} } };
   }
+
+  if (!cookieAuth.ART_GALLERY_ACCESS_TOKEN && !req) {
+    Router.replace('/');
+    return { props: { cookie: {} } };
+  }
+
   return { props: { cookie: {} } };
 };
 
